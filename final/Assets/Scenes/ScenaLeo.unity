@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731713, g: 0.13414736, b: 0.12107852, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -245,11 +245,11 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 66579859}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -362,8 +362,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 145661093}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.895, z: -0.457}
-  m_LocalScale: {x: 1, y: 2.7906837, z: 0.10103535}
+  m_LocalPosition: {x: -0.0000003166885, y: -0.8950003, z: -0.457}
+  m_LocalScale: {x: 1, y: 2.7906835, z: 0.101035334}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 511922989}
@@ -1697,7 +1697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   padreBalas: {fileID: 0}
   balasList: []
-  balaPrefab: {fileID: 5134269067548453954, guid: 8291116156fbdb243966417176af2c6b,
+  balaPrefab: {fileID: 3522286357918907064, guid: 7422a9d27957f9742ab32c4195ad176d,
     type: 3}
   cartucho: 30
 --- !u!1 &1751327168
