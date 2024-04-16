@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 5134269067548453958}
   - component: {fileID: 5134269067548453953}
   - component: {fileID: 5134269067548453952}
+  - component: {fileID: 639370229170228536}
   - component: {fileID: 5134269067548453955}
+  - component: {fileID: 4351716014595563542}
   m_Layer: 0
   m_Name: Bala
   m_TagString: Untagged
@@ -27,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5134269067548453954}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.3865, y: 1.4866, z: 1.4866}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -84,6 +86,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &639370229170228536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5134269067548453954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab8eae1e7a8046046a30c3b79b3e0664, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tiempoDeVida: 5
+  fuerzaDisparo: 20
 --- !u!136 &5134269067548453955
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -98,3 +114,19 @@ CapsuleCollider:
   m_Height: 2.2068992
   m_Direction: 1
   m_Center: {x: 0, y: 4.846512e-12, z: 0.026064577}
+--- !u!54 &4351716014595563542
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5134269067548453954}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
