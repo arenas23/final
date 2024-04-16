@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundMask;
     bool isGrounded;
 
+    public float jumpForce = 3;
+
     Vector3 velocity;
 
     void Start()
@@ -25,21 +27,37 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         isGrounded = Physics.CheckSphere(groundCheck.position, sphereRadius, groundMask);
+        MovePlayer();
+        Gravity();
 
-        if( isGrounded && velocity.y < 0)
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            velocity.y = Mathf.Sqrt(jumpForce * -2 * gravity);
+        }
+    }
+
+    public void MovePlayer()
+    {
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
+        Vector3 movePlayer = transform.right * x + transform.forward * z;
+        chControllerPlayer.Move(movePlayer * speed * Time.deltaTime);
+    }
+
+    public void Gravity()
+    {
+        if (isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
         }
-
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
-
-        Vector3 movePlayer = transform.right * x + transform.forward * z;
-
-        chControllerPlayer.Move(movePlayer * speed * Time.deltaTime);
-
         velocity.y += gravity * Time.deltaTime;
-
         chControllerPlayer.Move(velocity * Time.deltaTime);
     }
+
+    public void Jump()
+    {
+
+    }
+
+
 }
