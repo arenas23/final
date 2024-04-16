@@ -6,27 +6,42 @@ public class Bala : MonoBehaviour
 {
     public float tiempoDeVida = 5f;
     private float tiempoDesdeDisparo;
-    public float fuerzaDisparo = 20f; // Ajusta esta fuerza según necesites
+    public float fuerzaDisparo = 50f; // Ajusta esta fuerza según necesites
+    public Transform balaPadre;
 
+    private void Start()
+    {
+        
+    }
     void OnEnable()
     {
+        balaPadre = GameObject.Find("PadreBalas").GetComponent<Transform>();
         tiempoDesdeDisparo = 0f;
-        // Aplicar la fuerza de disparo en la dirección hacia adelante del objeto 'Bala'.
-        GetComponent<Rigidbody>().AddForce(transform.forward * fuerzaDisparo, ForceMode.Impulse);
+        
+        GetComponent<Rigidbody>().AddForce(balaPadre.forward * fuerzaDisparo, ForceMode.Impulse);
+        
     }
 
     void Update()
     {
+      
         tiempoDesdeDisparo += Time.deltaTime;
 
         if (tiempoDesdeDisparo >= tiempoDeVida)
         {
-            gameObject.SetActive(false);
+            gameObject.SetActive(false); 
         }
+    }
+
+    private void OnDisable()
+    {
+        GetComponent<Rigidbody>().velocity = Vector3.zero;
+        GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        gameObject.SetActive(false);
+       gameObject.SetActive(false);
+      
     }
 }

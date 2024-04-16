@@ -13,7 +13,7 @@ public class Weapon : MonoBehaviour
     public Transform padreBalas;
     public List<GameObject> balasList;
     public GameObject balaPrefab;
-    public int cartucho = 10;
+    public int cartucho = 30;
 
     private void Awake()
     {
@@ -37,8 +37,19 @@ public class Weapon : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
-        {          
-            ObtenerBalas().SetActive(true);
+        {
+            GameObject balaTemporal = ObtenerBalas();
+            if(balaTemporal != null)
+            {
+                balaTemporal.transform.position = padreBalas.transform.position;
+                balaTemporal.SetActive(true);
+            }
+            else
+            {
+                Debug.Log("Sin balas");
+            }
+            
+  
         }
     }
 
@@ -49,7 +60,7 @@ public class Weapon : MonoBehaviour
 
         for (int i = 0; i < cartucho; i++)
         {
-            balaTemporal = Instantiate(balaPrefab, padreBalas);
+            balaTemporal = Instantiate(balaPrefab);
             balaTemporal.SetActive(false);
             balasList.Add(balaTemporal);
         }
@@ -61,9 +72,11 @@ public class Weapon : MonoBehaviour
         {
             if (!balasList[i].activeInHierarchy)
             {
+
                 return balasList[i];
             }
-        }
+           
+        }  
         return null;
     }
 
