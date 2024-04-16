@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyProbe : MonoBehaviour
 {
+    public bool carga = true;
 
     public float velocidadMovimiento = 5.0f;
 
@@ -28,6 +29,14 @@ public class EnemyProbe : MonoBehaviour
         transform.Rotate(0, x * Time.deltaTime * velocidadRotacion, 0);
 
         transform.Translate(0,0,y * Time.deltaTime * velocidadMovimiento);
+
+        anim.SetFloat("VelX", x);
+
+        anim.SetFloat("VelY", y);
+
+        anim.SetBool("Carga", carga);
+
+        
 
     }
 }
