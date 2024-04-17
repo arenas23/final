@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7671900190803693641}
+  - component: {fileID: 1249607060848589355}
   - component: {fileID: 7671900190803693645}
   - component: {fileID: 7671900190803693642}
   - component: {fileID: 7671900190803693643}
@@ -17,7 +18,7 @@ GameObject:
   - component: {fileID: 7671900190803693640}
   - component: {fileID: 7671900190803693646}
   m_Layer: 0
-  m_Name: Bala 1
+  m_Name: BalaPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,13 +32,26 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7671900190803693621}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.306, y: 0.785, z: -0.99}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1249607060848589355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7671900190803693621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1539912b9547bab4d9027a8cbccdc081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 10
 --- !u!114 &7671900190803693645
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -50,9 +64,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab8eae1e7a8046046a30c3b79b3e0664, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiempoDeVida: 5
-  fuerzaDisparo: 300
-  balaPadre: {fileID: 0}
+  lifeTimeBullet: 5
+  shootTime: 0
+  shootForce: 200
+  fatherBullets: {fileID: 0}
+  hitLayers:
+    serializedVersion: 2
+    m_Bits: 136
 --- !u!33 &7671900190803693642
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -114,7 +132,7 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
+  m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!108 &7671900190803693647
 Light:
@@ -127,7 +145,7 @@ Light:
   serializedVersion: 10
   m_Type: 2
   m_Shape: 0
-  m_Color: {r: 1, g: 0.020754695, b: 0.020754695, a: 1}
+  m_Color: {r: 0, g: 1, b: 0, a: 1}
   m_Intensity: 20
   m_Range: 10
   m_SpotAngle: 30

@@ -11,10 +11,10 @@ public class Weapon : MonoBehaviour
         private set;
     }
 
-    public Transform padreBalas;
-    public List<GameObject> balasList;
-    public GameObject balaPrefab;
-    public int cartucho = 30;
+    [SerializeField] Transform fatherBullets;
+    [SerializeField] List<GameObject> bulletList;
+    [SerializeField] GameObject bulletPrefab;
+    [SerializeField] int bulletCartridge = 30;
 
     private void Awake()
     {
@@ -31,54 +31,57 @@ public class Weapon : MonoBehaviour
 
     void Start()
     {
-        padreBalas = GameObject.Find("PadreBalas").GetComponent<Transform>();
-        InstanciaBalas();
+        fatherBullets = GameObject.Find("PadreBalas").GetComponent<Transform>();
+        BulletInstantiate();
     }
 
     void Update()
     {
+        ShootAmo();
+    }
+
+    void BulletInstantiate()
+    {
+        bulletList = new List<GameObject>();
+        GameObject balaTemporal;
+
+        for (int i = 0; i < bulletCartridge; i++)
+        {
+            balaTemporal = Instantiate(bulletPrefab);
+            balaTemporal.SetActive(false);
+            bulletList.Add(balaTemporal);
+        }
+    }
+
+    GameObject GetBullets()
+    {
+        for (int i = 0; i < bulletCartridge; i++)
+        {
+            if (!bulletList[i].activeInHierarchy)
+            {
+                return bulletList[i];
+            } 
+        }  
+        return null;
+    }
+
+    void ShootAmo()
+    {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            GameObject balaTemporal = ObtenerBalas();
-            if(balaTemporal != null)
+            
+            GameObject balaTemporal = GetBullets();
+            if (balaTemporal != null)
             {
-                balaTemporal.transform.position = padreBalas.transform.position;
+                balaTemporal.transform.position = fatherBullets.transform.position;
                 balaTemporal.SetActive(true);
             }
             else
             {
                 Debug.Log("Sin balas");
             }
-            
-  
         }
-    }
-
-    public void InstanciaBalas()
-    {
-        balasList = new List<GameObject>();
-        GameObject balaTemporal;
-
-        for (int i = 0; i < cartucho; i++)
-        {
-            balaTemporal = Instantiate(balaPrefab);
-            balaTemporal.SetActive(false);
-            balasList.Add(balaTemporal);
-        }
-    }
-
-    public GameObject ObtenerBalas()
-    {
-        for (int i = 0; i < cartucho; i++)
-        {
-            if (!balasList[i].activeInHierarchy)
-            {
-
-                return balasList[i];
-            }
-           
-        }  
-        return null;
+        
     }
 
 }
