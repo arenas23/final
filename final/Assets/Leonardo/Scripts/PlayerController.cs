@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     public LayerMask groundMask;
     bool isGrounded;
 
+    public Animator animator;
+
     public float jumpForce = 3;
 
     Vector3 velocity;
@@ -21,6 +23,7 @@ public class PlayerController : MonoBehaviour
     {
         groundCheck = transform.Find("GroundCheck");
         chControllerPlayer = GetComponent<CharacterController>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     
@@ -42,6 +45,12 @@ public class PlayerController : MonoBehaviour
         float z = Input.GetAxis("Vertical");
         Vector3 movePlayer = transform.right * x + transform.forward * z;
         chControllerPlayer.Move(movePlayer * speed * Time.deltaTime);
+
+
+        
+        animator.SetFloat("Speed", Mathf.Abs(movePlayer.x) + Mathf.Abs(movePlayer.z));
+        
+        animator.SetBool("Grounded", isGrounded);
     }
 
     public void Gravity()
