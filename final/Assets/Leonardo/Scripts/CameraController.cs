@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public float mouseSensitivity = 80f;
-    public Transform playerBody;
-    public GameObject player;
-    float xRotation = 0;
+    [SerializeField] float mouseSensitivity = 80f;
+    [SerializeField] Transform playerBody;
+    [SerializeField] GameObject player;
+    [SerializeField] float xRotation = 0;
     
     void Start()
     {
@@ -19,16 +19,20 @@ public class CameraController : MonoBehaviour
     
     void Update()
     {
+        CameraMove();
+    }
+
+    void CameraMove()
+    {
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
-        
+
         xRotation -= mouseY;
 
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        xRotation = Mathf.Clamp(xRotation, -40f, 30f);
 
         transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
 
         playerBody.Rotate(Vector3.up * mouseX);
-        
     }
 }
