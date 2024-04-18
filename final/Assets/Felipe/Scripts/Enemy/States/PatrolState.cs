@@ -33,7 +33,6 @@ public class PatrolState : BaseState
             waitTimer += Time.deltaTime;
             if (waitTimer >= 3f)
             {
-
                 if (wayPointIndex < enemy.path.wayPoints.Count - 1)
                 {
                     wayPointIndex++;
@@ -46,6 +45,5 @@ public class PatrolState : BaseState
                 waitTimer = 0f;
             }
         }
-
     }
 }

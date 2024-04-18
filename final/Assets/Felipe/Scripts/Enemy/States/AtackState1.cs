@@ -7,7 +7,7 @@ public class AtackState1 : BaseState
     private float moveTimer;
     private float losePlayerTimer;
     private float shotTimer;
-    
+
 
 
     public override void Do()
@@ -19,12 +19,12 @@ public class AtackState1 : BaseState
             shotTimer += Time.deltaTime;
             enemy.transform.LookAt(enemy.Player.transform);
 
-            if(shotTimer > enemy.fireRate) 
+            if (shotTimer > enemy.fireRate)
             {
                 Shoot();
             }
 
-            if(moveTimer > Random.Range(3, 7))
+            if (moveTimer > Random.Range(3, 7))
             {
                 enemy.Agent.SetDestination(enemy.transform.position + (Random.insideUnitSphere * 5));
                 moveTimer = 0;
@@ -33,7 +33,7 @@ public class AtackState1 : BaseState
         else
         {
             losePlayerTimer += Time.deltaTime;
-            if(losePlayerTimer > 8)
+            if (losePlayerTimer > 8)
             {
                 //Change to the search state
                 stateMachine.ChangeState(new PatrolState());
@@ -47,7 +47,7 @@ public class AtackState1 : BaseState
         //METER LOGICA DE DISPARO
         // Instanciar bala
         //GameObject bullet = GameObject.Instantiate(Resources.Load("Fernanda/Prefabs/Bullet.prefab") as GameObject, gunbarrel.position, enemy.transform.rotation);
-        
+
         Vector3 shootDirection = (enemy.Player.transform.position - gunbarrel.transform.position).normalized;
 
         // Instanciar bala
@@ -60,25 +60,11 @@ public class AtackState1 : BaseState
 
     public override void Enter()
     {
-        
+
     }
 
     public override void Exit()
     {
-        
-    }
 
-    
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
