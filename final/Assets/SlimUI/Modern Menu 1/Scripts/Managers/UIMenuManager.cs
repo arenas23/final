@@ -137,6 +137,14 @@ namespace SlimUI.ModernMenu{
 			mainMenu.SetActive(true);
 		}
 
+		// Fernanda
+
+		public void PlayScene(){
+			SceneManager.LoadScene(1);
+		}
+
+		// Fernanda
+
 		public void LoadScene(string scene){
 			if(scene != ""){
 				StartCoroutine(LoadAsynchronously(scene));
