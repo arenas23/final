@@ -57,6 +57,7 @@ public class Enemy : MonoBehaviour
 
 
     }
+    
     public bool CanSeePlayer()
     {
         if (player != null)

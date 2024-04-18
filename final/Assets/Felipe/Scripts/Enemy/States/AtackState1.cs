@@ -7,8 +7,13 @@ public class AtackState1 : BaseState
     private float moveTimer;
     private float losePlayerTimer;
     private float shotTimer;
+    [SerializeField] int bulletEnemyCartridge = 20;
+    EnemyAtackPrueba enemyAtackPrueba;
+    GameObject fatherBullet;
 
 
+        
+    
 
     public override void Do()
     {
@@ -47,7 +52,7 @@ public class AtackState1 : BaseState
         //METER LOGICA DE DISPARO
         // Instanciar bala
         //GameObject bullet = GameObject.Instantiate(Resources.Load("Fernanda/Prefabs/Bullet.prefab") as GameObject, gunbarrel.position, enemy.transform.rotation);
-
+        ShootAmo();
         Vector3 shootDirection = (enemy.Player.transform.position - gunbarrel.transform.position).normalized;
 
         // Instanciar bala
@@ -60,11 +65,37 @@ public class AtackState1 : BaseState
 
     public override void Enter()
     {
-
+        enemyAtackPrueba = GameObject.Find("ObjectoPoolingBalasEnemy").GetComponent<EnemyAtackPrueba>();
     }
 
     public override void Exit()
     {
+
+    }
+
+    GameObject GetBullets()
+    {
+        for (int i = 0; i < bulletEnemyCartridge; i++)
+        {
+            if (!enemyAtackPrueba.bulletEnemyList[i].activeInHierarchy)
+            {
+                return enemyAtackPrueba.bulletEnemyList[i];
+            }
+        }
+        return null;
+    }
+
+    void ShootAmo()
+    {
+        GameObject balaTemporal = GetBullets();
+        if (balaTemporal != null)
+        {
+            balaTemporal.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("Sin balas");
+        }
 
     }
 }

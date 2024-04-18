@@ -8,12 +8,12 @@ public class EnemyAtackPrueba : MonoBehaviour
   
 
     [SerializeField] Transform fatherBullets;
-    [SerializeField] List<GameObject> bulletEnemyList;
+    public List<GameObject> bulletEnemyList;
     [SerializeField] GameObject bulletEnemyPrefab;
     [SerializeField] int bulletEnemyCartridge = 20;
 
-    [SerializeField] float shootingDistance = 10f; // Establece la distancia a la que se puede disparar
-    [SerializeField] Transform playerTransform; // Referencia al transform del jugador
+    [SerializeField] float shootingDistance = 10f;
+    [SerializeField] Transform playerTransform;
 
     private bool isShooting = false;
 
@@ -27,24 +27,20 @@ public class EnemyAtackPrueba : MonoBehaviour
 
     void Update()
     {
-       //ShootAmo();
 
-        // Calcula la distancia entre el jugador y el objeto fatherBullets
-        float distanceToPlayer = Vector3.Distance(playerTransform.position, fatherBullets.position);
+        // float distanceToPlayer = Vector3.Distance(playerTransform.position, fatherBullets.position);
 
-        // Verifica si la distancia es menor o igual a la distancia de disparo establecida
-        if (distanceToPlayer <= shootingDistance && !isShooting)
-        {
-            // Comienza a disparar si el jugador está a la distancia adecuada y no se ha iniciado el disparo
-            InvokeRepeating("ShootAmo", 0.2f, 0.5f);
-            isShooting = true; // Establece que el disparo ha comenzado
-        }
-        else if (distanceToPlayer > shootingDistance && isShooting)
-        {
-            // Detiene el disparo si el jugador está fuera de la distancia de disparo
-            CancelInvoke("ShootAmo");
-            isShooting = false; // Establece que el disparo ha terminado
-        }
+        // if (distanceToPlayer <= shootingDistance && !isShooting)
+        // {
+        //     InvokeRepeating("ShootAmo", 0.2f, 0.5f);
+        //     isShooting = true; // Establece que el disparo ha comenzado
+        // }
+        // else if (distanceToPlayer > shootingDistance && isShooting)
+        // {
+
+        //     CancelInvoke("ShootAmo");
+        //     isShooting = false; // Establece que el disparo ha terminado
+        // }
     }
 
     void BulletInstantiate()
