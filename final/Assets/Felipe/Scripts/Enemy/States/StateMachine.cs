@@ -5,12 +5,13 @@ using UnityEngine;
 public class StateMachine : MonoBehaviour
 {
     public BaseState activeState;
-    public PatrolState patrolState;
+    //public PatrolState patrolState; Se borra minuto : 13:34
 
     public void Initialize()
     {
-        patrolState = new PatrolState();
-        ChangeState(patrolState);
+        //patrolState = new PatrolState(); Se borra minuto : 13:34
+        //ChangeState(patrolState);
+        ChangeState(new PatrolState());
     }
 
     private void Update()
