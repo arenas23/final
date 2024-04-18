@@ -13,6 +13,14 @@ public class Enemy : MonoBehaviour
     public float speed;
 
     public NavMeshAgent Agent { get => agent; }
+    public GameObject Player { get => player; }
+
+    [Header("Weapon Values")]
+    public Transform gunBarrel;
+    [Range(0.1f, 10f)]
+    public float fireRate;
+
+
 
     [SerializeField]
     private string currentState;
@@ -20,8 +28,11 @@ public class Enemy : MonoBehaviour
     public EnemyPath path;
 
     private GameObject player;
+    [Header("Sight Values")]
     public float sightRange = 20f;
     public float fieldOfView = 85f;
+    public float eyeHeight;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +53,8 @@ public class Enemy : MonoBehaviour
         animator.SetFloat("speed", speed);
 
         CanSeePlayer();
+        currentState = stateMachine.activeState.ToString();
+
     }
     public bool CanSeePlayer()
     {
@@ -50,12 +63,21 @@ public class Enemy : MonoBehaviour
             //Is the player close enough to be seen
             if (Vector3.Distance(transform.position, player.transform.position) < sightRange)
             {
-                Vector3 targetDirection = player.transform.position - transform.position;
+                Vector3 targetDirection = player.transform.position - transform.position - (Vector3.up * eyeHeight);
                 float angleToPlayer = Vector3.Angle(targetDirection, transform.forward);
                 if (angleToPlayer >= -fieldOfView && angleToPlayer <= fieldOfView)
                 {
-                    Ray ray = new Ray(transform.position, targetDirection);
-                    Debug.DrawRay(ray.origin, ray.direction * sightRange, Color.red);
+                    Ray ray = new Ray(transform.position + (Vector3.up *eyeHeight), targetDirection);
+                    RaycastHit hitInfo = new RaycastHit();
+                    if(Physics.Raycast(ray, out hitInfo, sightRange))
+                    {
+                        if(hitInfo.transform.gameObject == player)
+                        {
+                            Debug.DrawRay(ray.origin, ray.direction * sightRange);
+                            return true;
+                        }
+                    }
+                   // Debug.DrawRay(ray.origin, ray.direction * sightRange, Color.red);//Revizar
                 }
             }
         }
