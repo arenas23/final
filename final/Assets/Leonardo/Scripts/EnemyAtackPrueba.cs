@@ -21,7 +21,7 @@ public class EnemyAtackPrueba : MonoBehaviour
     void Start()
     {
         playerTransform = GameObject.Find("Player").GetComponent<Transform>();
-        fatherBullets = GameObject.Find("BalasEnemyPadre").GetComponent<Transform>();
+        // fatherBullets = GameObject.Find("BalasEnemyPadre").GetComponent<Transform>();
         BulletInstantiate();
     }
 
