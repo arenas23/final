@@ -8,7 +8,6 @@ public class Enemy : MonoBehaviour
     private StateMachine stateMachine;
     private NavMeshAgent agent;
     private Animator animator;
-    private Rigidbody rigidbody;
     private CapsuleCollider rootColider;
     public float speed;
 
@@ -39,7 +38,6 @@ public class Enemy : MonoBehaviour
         stateMachine = GetComponent<StateMachine>();
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
-        rigidbody = GetComponent<Rigidbody>();
         rootColider = GetComponent<CapsuleCollider>();
         stateMachine.Initialize();
         player = GameObject.FindWithTag("Player");
@@ -65,22 +63,25 @@ public class Enemy : MonoBehaviour
             //Is the player close enough to be seen
             if (Vector3.Distance(transform.position, player.transform.position) < sightRange)
             {
-                Vector3 targetDirection = player.transform.position - transform.position - (Vector3.up * eyeHeight);
+                Vector3 targetDirection = player.transform.position - transform.position + (Vector3.up * eyeHeight);
                 float angleToPlayer = Vector3.Angle(targetDirection, transform.forward);
                 if (angleToPlayer >= -fieldOfView && angleToPlayer <= fieldOfView)
                 {
+                   
                     Ray ray = new Ray(transform.position + (Vector3.up * eyeHeight), targetDirection);
                     Debug.DrawRay(ray.origin, ray.direction * sightRange, Color.green);
                     RaycastHit hitInfo = new RaycastHit();
+                    
                     if (Physics.Raycast(ray, out hitInfo, sightRange))
                     {
+                        //Debug.Log(hitInfo.transform.gameObject.name);
                         if (hitInfo.transform.gameObject == player)
                         {
                             Debug.DrawRay(ray.origin, ray.direction * sightRange, Color.red);
                             return true;
                         }
                     }
-                    // Debug.DrawRay(ray.origin, ray.direction * sightRange, Color.red);//Revizar
+                   //Debug.DrawRay(ray.origin, ray.direction * sightRange, Color.red);//Revizar
                 }
             }
         }

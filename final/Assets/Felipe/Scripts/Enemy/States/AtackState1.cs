@@ -27,6 +27,7 @@ public class AtackState1 : BaseState
             if (shotTimer > enemy.fireRate)
             {
                 Shoot();
+               
             }
 
             if (moveTimer > Random.Range(3, 7))
@@ -49,10 +50,10 @@ public class AtackState1 : BaseState
     public void Shoot()
     {
         Transform gunbarrel = enemy.gunBarrel;
-        //METER LOGICA DE DISPARO
-        // Instanciar bala
-        //GameObject bullet = GameObject.Instantiate(Resources.Load("Fernanda/Prefabs/Bullet.prefab") as GameObject, gunbarrel.position, enemy.transform.rotation);
-        ShootAmo();
+
+        enemy.GetComponent<EnemyAtackPrueba>().ShootAmo();
+        
+        
         Vector3 shootDirection = (enemy.Player.transform.position - gunbarrel.transform.position).normalized;
 
         // Instanciar bala

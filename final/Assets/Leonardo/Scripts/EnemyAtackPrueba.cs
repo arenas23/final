@@ -21,26 +21,29 @@ public class EnemyAtackPrueba : MonoBehaviour
     void Start()
     {
         playerTransform = GameObject.Find("Player").GetComponent<Transform>();
-        // fatherBullets = GameObject.Find("BalasEnemyPadre").GetComponent<Transform>();
+        fatherBullets = GameObject.Find("BalasEnemyPadre").GetComponent<Transform>();
         BulletInstantiate();
     }
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            ShootAmo();
+        }
+        //float distanceToPlayer = Vector3.Distance(playerTransform.position, fatherBullets.position);
 
-        // float distanceToPlayer = Vector3.Distance(playerTransform.position, fatherBullets.position);
+        //if (distanceToPlayer <= shootingDistance && !isShooting)
+        //{
+        //    InvokeRepeating("ShootAmo", 0.2f, 0.5f);
+        //    isShooting = true; // Establece que el disparo ha comenzado
+        //}
+        //else if (distanceToPlayer > shootingDistance && isShooting)
+        //{
 
-        // if (distanceToPlayer <= shootingDistance && !isShooting)
-        // {
-        //     InvokeRepeating("ShootAmo", 0.2f, 0.5f);
-        //     isShooting = true; // Establece que el disparo ha comenzado
-        // }
-        // else if (distanceToPlayer > shootingDistance && isShooting)
-        // {
-
-        //     CancelInvoke("ShootAmo");
-        //     isShooting = false; // Establece que el disparo ha terminado
-        // }
+        //    CancelInvoke("ShootAmo");
+        //    isShooting = false; // Establece que el disparo ha terminado
+        //}
     }
 
     void BulletInstantiate()
@@ -68,7 +71,7 @@ public class EnemyAtackPrueba : MonoBehaviour
         return null;
     }
 
-    void ShootAmo()
+    public void ShootAmo()
     {
         GameObject balaTemporal = GetBullets();
         if (balaTemporal != null)
