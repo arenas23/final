@@ -56,7 +56,7 @@ MonoBehaviour:
   fatherBullets: {fileID: 0}
   hitLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 72
 --- !u!33 &5252558122578753051
 MeshFilter:
   m_ObjectHideFlags: 0

@@ -74,14 +74,14 @@ public class Enemy : MonoBehaviour
                     
                     if (Physics.Raycast(ray, out hitInfo, sightRange))
                     {
-                        //Debug.Log(hitInfo.transform.gameObject.name);
+                        
                         if (hitInfo.transform.gameObject == player)
                         {
                             Debug.DrawRay(ray.origin, ray.direction * sightRange, Color.red);
                             return true;
                         }
                     }
-                   //Debug.DrawRay(ray.origin, ray.direction * sightRange, Color.red);//Revizar
+                   
                 }
             }
         }

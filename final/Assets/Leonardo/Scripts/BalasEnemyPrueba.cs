@@ -11,10 +11,10 @@ public class BalasEnemyPrueba : MonoBehaviour
 
     private Vector3 lastPosition;
     [SerializeField] LayerMask hitLayers;
-
+    
     private void Start()
     {
-
+       
     }
     void OnEnable()
     {
@@ -56,9 +56,8 @@ public class BalasEnemyPrueba : MonoBehaviour
 
         if (Physics.Raycast(lastPosition, direction, out RaycastHit hit, distance, hitLayers))
         {
-            EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth>();
-            gameObject.GetComponent<DamageManager>().DamageEnemy(enemyHealth);
-
+            PlayerHealth playerHealth = hit.collider.GetComponent<PlayerHealth>();
+            DamageManager.instance.DamagePlayer(playerHealth);
             gameObject.SetActive(false);
         }
     }

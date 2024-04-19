@@ -7,13 +7,7 @@ public class AtackState1 : BaseState
     private float moveTimer;
     private float losePlayerTimer;
     private float shotTimer;
-    [SerializeField] int bulletEnemyCartridge = 20;
-    EnemyAtackPrueba enemyAtackPrueba;
-    GameObject fatherBullet;
-
-
-        
-    
+  
 
     public override void Do()
     {
@@ -56,17 +50,13 @@ public class AtackState1 : BaseState
         
         Vector3 shootDirection = (enemy.Player.transform.position - gunbarrel.transform.position).normalized;
 
-        // Instanciar bala
-        //bullet.GetComponent<Rigidbody>().velocity = Quaternion.AngleAxis(Random.Range(-3f, 3f), Vector3.up) * shootDirection * 40;
-
-        Debug.Log("Shoot");
         shotTimer = 0;
     }
 
 
     public override void Enter()
     {
-        enemyAtackPrueba = GameObject.Find("ObjectoPoolingBalasEnemy").GetComponent<EnemyAtackPrueba>();
+    
     }
 
     public override void Exit()
@@ -74,29 +64,5 @@ public class AtackState1 : BaseState
 
     }
 
-    GameObject GetBullets()
-    {
-        for (int i = 0; i < bulletEnemyCartridge; i++)
-        {
-            if (!enemyAtackPrueba.bulletEnemyList[i].activeInHierarchy)
-            {
-                return enemyAtackPrueba.bulletEnemyList[i];
-            }
-        }
-        return null;
-    }
-
-    void ShootAmo()
-    {
-        GameObject balaTemporal = GetBullets();
-        if (balaTemporal != null)
-        {
-            balaTemporal.SetActive(true);
-        }
-        else
-        {
-            Debug.Log("Sin balas");
-        }
-
-    }
+ 
 }

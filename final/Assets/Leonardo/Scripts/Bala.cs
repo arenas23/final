@@ -10,11 +10,11 @@ public class Bala : MonoBehaviour
     [SerializeField] Transform fatherBullets;
 
     private Vector3 lastPosition; 
-    [SerializeField] LayerMask hitLayers; 
-
+    [SerializeField] LayerMask hitLayers;
+    
     private void Start()
     {
-
+     
     }
     void OnEnable()
     {
@@ -57,8 +57,7 @@ public class Bala : MonoBehaviour
         if (Physics.Raycast(lastPosition, direction, out RaycastHit hit, distance, hitLayers))
         {
             EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth>();
-            gameObject.GetComponent<DamageManager>().DamageEnemy(enemyHealth);
-
+            DamageManager.instance.DamageEnemy(enemyHealth);
             gameObject.SetActive(false);
         }
     }

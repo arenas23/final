@@ -11,39 +11,20 @@ public class EnemyAtackPrueba : MonoBehaviour
     public List<GameObject> bulletEnemyList;
     [SerializeField] GameObject bulletEnemyPrefab;
     [SerializeField] int bulletEnemyCartridge = 20;
-
     [SerializeField] float shootingDistance = 10f;
-    [SerializeField] Transform playerTransform;
-
-    private bool isShooting = false;
+    
 
 
     void Start()
     {
-        playerTransform = GameObject.Find("Player").GetComponent<Transform>();
         fatherBullets = GameObject.Find("BalasEnemyPadre").GetComponent<Transform>();
         BulletInstantiate();
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            ShootAmo();
-        }
-        //float distanceToPlayer = Vector3.Distance(playerTransform.position, fatherBullets.position);
-
-        //if (distanceToPlayer <= shootingDistance && !isShooting)
-        //{
-        //    InvokeRepeating("ShootAmo", 0.2f, 0.5f);
-        //    isShooting = true; // Establece que el disparo ha comenzado
-        //}
-        //else if (distanceToPlayer > shootingDistance && isShooting)
-        //{
-
-        //    CancelInvoke("ShootAmo");
-        //    isShooting = false; // Establece que el disparo ha terminado
-        //}
+       
+       
     }
 
     void BulletInstantiate()
