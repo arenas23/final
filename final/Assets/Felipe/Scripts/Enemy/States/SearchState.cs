@@ -12,11 +12,17 @@ public class SearchState : BaseState
         if (enemy.CanSeePlayer())
         
             stateMachine.ChangeState(new AtackState1());
-        
-        if(enemy.Agent.remainingDistance < enemy.Agent.stoppingDistance) 
+
+        Debug.Log("enemy.Agent.remainingDistance: " + enemy.Agent.remainingDistance);
+        Debug.Log("enemy.Agent.stoppingDistance: " + enemy.Agent.stoppingDistance);
+
+
+        if (enemy.Agent.remainingDistance <= enemy.Agent.stoppingDistance) //cuidado
         {
             searchTimer += Time.deltaTime;
             moveTimer += Time.deltaTime;
+
+            Debug.Log("Entro al if " + searchTimer);
 
             if (moveTimer > Random.Range(3, 5))
             {
