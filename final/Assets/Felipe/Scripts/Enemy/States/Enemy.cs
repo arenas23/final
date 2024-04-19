@@ -11,8 +11,12 @@ public class Enemy : MonoBehaviour
     private CapsuleCollider rootColider;
     public float speed;
 
+    private Vector3 lastKnowPos;
+
     public NavMeshAgent Agent { get => agent; }
     public GameObject Player { get => player; }
+
+    public Vector3 LastKnowPos { get => lastKnowPos; set => lastKnowPos = value; }
 
     [Header("Weapon Values")]
     public Transform gunBarrel;
@@ -26,7 +30,9 @@ public class Enemy : MonoBehaviour
 
     public EnemyPath path;
 
-    public GameObject player;
+    private GameObject player; // Revizar si es sphere y siborrar.
+    private GameObject debugsphere; // Revizar si es player y siborrar.
+
     [Header("Sight Values")]
     public float sightRange = 20f;
     public float fieldOfView = 85f;
@@ -52,6 +58,8 @@ public class Enemy : MonoBehaviour
 
         //CanSeePlayer();
         currentState = stateMachine.activeState.ToString();
+        player.transform.position = lastKnowPos; // Revisar 
+        debugsphere.transform.position = lastKnowPos; //Revisar cual va
 
 
     }
