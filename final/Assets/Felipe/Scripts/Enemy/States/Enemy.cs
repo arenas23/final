@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
     public EnemyPath path;
 
     private GameObject player; // Revizar si es sphere y siborrar.
-    private GameObject debugsphere; // Revizar si es player y siborrar.
+    //private GameObject debugsphere; // Revizar si es player y siborrar.
 
     [Header("Sight Values")]
     public float sightRange = 20f;
@@ -58,8 +58,8 @@ public class Enemy : MonoBehaviour
 
         //CanSeePlayer();
         currentState = stateMachine.activeState.ToString();
-        player.transform.position = lastKnowPos; // Revisar 
-        debugsphere.transform.position = lastKnowPos; //Revisar cual va
+        
+        //debugsphere.transform.position = lastKnowPos; //Revisar cual va
 
 
     }
@@ -85,6 +85,7 @@ public class Enemy : MonoBehaviour
                         
                         if (hitInfo.transform.gameObject == player)
                         {
+                            lastKnowPos = player.transform.position;
                             Debug.DrawRay(ray.origin, ray.direction * sightRange, Color.red);
                             return true;
                         }
