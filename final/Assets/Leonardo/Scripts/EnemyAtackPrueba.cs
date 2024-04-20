@@ -5,15 +5,11 @@ using UnityEngine;
 
 public class EnemyAtackPrueba : MonoBehaviour
 {
-  
-
     [SerializeField] Transform fatherBullets;
     public List<GameObject> bulletEnemyList;
     [SerializeField] GameObject bulletEnemyPrefab;
     [SerializeField] int bulletEnemyCartridge = 20;
-    [SerializeField] float shootingDistance = 10f;
-    
-
+    //[SerializeField] float shootingDistance = 10f;
 
     void Start()
     {
@@ -23,10 +19,13 @@ public class EnemyAtackPrueba : MonoBehaviour
 
     void Update()
     {
-       
-       
+
     }
 
+    /// <summary>
+    /// Instantiates a list of bullet game objects based on the number specified in the bulletEnemyCartridge field.
+    /// Each instantiated bullet is set to be inactive and added to the bulletEnemyList.
+    /// </summary>
     void BulletInstantiate()
     {
         bulletEnemyList = new List<GameObject>();
@@ -40,6 +39,10 @@ public class EnemyAtackPrueba : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Retrieves the first inactive bullet from the bulletEnemyList.
+    /// </summary>
+    /// <returns>The first inactive bullet game object, or null if all bullets are active.</returns>
     GameObject GetBullets()
     {
         for (int i = 0; i < bulletEnemyCartridge; i++)
@@ -52,7 +55,7 @@ public class EnemyAtackPrueba : MonoBehaviour
         return null;
     }
 
-    public void ShootAmo()
+    public void ShootAmmo()
     {
         GameObject balaTemporal = GetBullets();
         if (balaTemporal != null)
@@ -64,7 +67,5 @@ public class EnemyAtackPrueba : MonoBehaviour
         {
             Debug.Log("Sin balas");
         }
-
     }
-
 }
