@@ -2037,7 +2037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dee9f2d493c299b4b817de33edc82132, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fatherBullets: {fileID: 0}
+  bulletsParent: {fileID: 0}
   bulletList: []
   bulletPrefab: {fileID: 7671900190803693621, guid: 710d497f12b73a948a92a79fe85b1681,
     type: 3}
@@ -4376,6 +4376,11 @@ PrefabInstance:
       propertyPath: path
       value: 
       objectReference: {fileID: 1747946559}
+    - target: {fileID: 1893200432, guid: a1dc3064eab71a54e83142781f3f49af, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 5252558122578753048, guid: 862a35e8995a0a041a67392668ff9cae,
+        type: 3}
     - target: {fileID: 382084694941495140, guid: a1dc3064eab71a54e83142781f3f49af,
         type: 3}
       propertyPath: m_RootOrder
@@ -4644,17 +4649,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa731cf14e96f654eb9b37475c573eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chControllerPlayer: {fileID: 0}
   speed: 5
+  walkSpeed: 5
+  runSpeed: 10
+  jumpForce: 3
   gravity: -30
   groundCheck: {fileID: 0}
-  sphereRadius: 0.3
   groundMask:
     serializedVersion: 2
     m_Bits: 8
+  sphereRadius: 0.3
   isGrounded: 0
-  animator: {fileID: 0}
-  jumpForce: 3
 --- !u!143 &8661250618713749874
 CharacterController:
   m_ObjectHideFlags: 0

@@ -2,28 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BalasEnemyPrueba : MonoBehaviour
+public class EnemyBullet : MonoBehaviour
 {
     [SerializeField] float lifeTimeBullet = 5f;
     [SerializeField] float shootTime;
     [SerializeField] float shootForce = 200f;
-    [SerializeField] Transform fatherBullets;
+    [SerializeField] Transform bulletsParent;
 
     private Vector3 lastPosition;
     [SerializeField] LayerMask hitLayers;
-    
+
     private void Start()
     {
-       
+
     }
+
     void OnEnable()
     {
         lastPosition = transform.position;
 
-        fatherBullets = GameObject.Find("BalasEnemyPadre").GetComponent<Transform>();
+        bulletsParent = GameObject.Find("BalasEnemyPadre").GetComponent<Transform>();
         shootTime = 0f;
 
-        GetComponent<Rigidbody>().AddForce(fatherBullets.forward * shootForce, ForceMode.Impulse);
+        GetComponent<Rigidbody>().AddForce(bulletsParent.forward * shootForce, ForceMode.Impulse);
     }
 
     void Update()
@@ -53,6 +54,8 @@ public class BalasEnemyPrueba : MonoBehaviour
     {
         Vector3 direction = transform.position - lastPosition;
         float distance = direction.magnitude;
+        Debug.Log("Ray Drawn");
+        //Debug.DrawRay(lastPosition, direction * distance, Color.red);
 
         if (Physics.Raycast(lastPosition, direction, out RaycastHit hit, distance, hitLayers))
         {
@@ -61,7 +64,6 @@ public class BalasEnemyPrueba : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
-
 }
 
 

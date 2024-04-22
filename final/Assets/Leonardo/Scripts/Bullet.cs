@@ -2,28 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bala : MonoBehaviour
+public class Bullet : MonoBehaviour
 {
     [SerializeField] float lifeTimeBullet = 5f;
     [SerializeField] float shootTime;
     [SerializeField] float shootForce = 200f;
-    [SerializeField] Transform fatherBullets;
+    [SerializeField] Transform bulletsParent;
 
-    private Vector3 lastPosition; 
+    private Vector3 lastPosition;
     [SerializeField] LayerMask hitLayers;
-    
+
     private void Start()
     {
-     
+
     }
     void OnEnable()
     {
         lastPosition = transform.position;
 
-        fatherBullets = GameObject.Find("PadreBalas").GetComponent<Transform>();
+        bulletsParent = GameObject.Find("PadreBalas").GetComponent<Transform>();
         shootTime = 0f;
 
-        GetComponent<Rigidbody>().AddForce(fatherBullets.forward * shootForce, ForceMode.Impulse);
+        GetComponent<Rigidbody>().AddForce(bulletsParent.forward * shootForce, ForceMode.Impulse);
     }
 
     void Update()
@@ -61,6 +61,5 @@ public class Bala : MonoBehaviour
             gameObject.SetActive(false);
         }
     }
-
 }
 

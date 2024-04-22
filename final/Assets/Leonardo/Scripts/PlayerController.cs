@@ -4,25 +4,28 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] CharacterController chControllerPlayer;
-    [SerializeField] float speed = 5f;
-    [SerializeField] float gravity = -9.8f;
+    CharacterController characterController;
+    Animator animator;
 
+    [Header("Movement")]
+    [SerializeField] float speed = 5f;
+    [SerializeField] float walkSpeed = 5f;
+    [SerializeField] float runSpeed = 10f;
+    [SerializeField] float jumpForce = 3;
+    [SerializeField] float gravity = -9.8f;
+    private Vector3 velocity;
+
+    [Header("Ground Check")]
     [SerializeField] Transform groundCheck;
-    [SerializeField] float sphereRadius = 0.3f;
     [SerializeField] LayerMask groundMask;
+    [SerializeField] float sphereRadius = 0.3f;
     [SerializeField] bool isGrounded;
 
-    [SerializeField] Animator animator;
-
-    [SerializeField] float jumpForce = 3;
-
-    Vector3 velocity;
 
     void Start()
     {
         groundCheck = transform.Find("GroundCheck");
-        chControllerPlayer = GetComponent<CharacterController>();
+        characterController = GetComponent<CharacterController>();
         animator = GetComponentInChildren<Animator>();
     }
 
@@ -38,13 +41,13 @@ public class PlayerController : MonoBehaviour
 
     void MovePlayer()
     {
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
-        Vector3 movePlayer = transform.right * x + transform.forward * z;
-        chControllerPlayer.Move(movePlayer * speed * Time.deltaTime);
+        float xInput = Input.GetAxis("Horizontal");
+        float yInput = Input.GetAxis("Vertical");
+        Vector3 movePlayer = transform.right * xInput + transform.forward * yInput;
+        characterController.Move(movePlayer * speed * Time.deltaTime);
 
+        // Animation
         animator.SetFloat("Speed", Mathf.Abs(movePlayer.x) + Mathf.Abs(movePlayer.z));
-
         animator.SetBool("Grounded", isGrounded);
     }
 
@@ -55,7 +58,7 @@ public class PlayerController : MonoBehaviour
             velocity.y = -2f;
         }
         velocity.y += gravity * Time.deltaTime;
-        chControllerPlayer.Move(velocity * Time.deltaTime);
+        characterController.Move(velocity * Time.deltaTime);
     }
 
     void Jump()
@@ -70,12 +73,11 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.LeftShift))
         {
-            speed = 10f;
+            speed = runSpeed;
         }
         else
         {
-            speed = 5f;
+            speed = walkSpeed;
         }
     }
-
 }

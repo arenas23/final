@@ -11,7 +11,7 @@ public class Weapon : MonoBehaviour
         private set;
     }
 
-    [SerializeField] Transform fatherBullets;
+    [SerializeField] Transform bulletsParent;
     [SerializeField] List<GameObject> bulletList;
     [SerializeField] GameObject bulletPrefab;
     [SerializeField] int bulletCartridge = 30;
@@ -26,12 +26,11 @@ public class Weapon : MonoBehaviour
         {
             Destroy(this);
         }
-
     }
 
     void Start()
     {
-        fatherBullets = GameObject.Find("PadreBalas").GetComponent<Transform>();
+        bulletsParent = GameObject.Find("PadreBalas").GetComponent<Transform>();
         BulletInstantiate();
     }
 
@@ -43,13 +42,13 @@ public class Weapon : MonoBehaviour
     void BulletInstantiate()
     {
         bulletList = new List<GameObject>();
-        GameObject balaTemporal;
+        GameObject tempBullet;
 
         for (int i = 0; i < bulletCartridge; i++)
         {
-            balaTemporal = Instantiate(bulletPrefab);
-            balaTemporal.SetActive(false);
-            bulletList.Add(balaTemporal);
+            tempBullet = Instantiate(bulletPrefab);
+            tempBullet.SetActive(false);
+            bulletList.Add(tempBullet);
         }
     }
 
@@ -60,8 +59,8 @@ public class Weapon : MonoBehaviour
             if (!bulletList[i].activeInHierarchy)
             {
                 return bulletList[i];
-            } 
-        }  
+            }
+        }
         return null;
     }
 
@@ -69,19 +68,17 @@ public class Weapon : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            
-            GameObject balaTemporal = GetBullets();
-            if (balaTemporal != null)
+
+            GameObject bulletToShoot = GetBullets();
+            if (bulletToShoot != null)
             {
-                balaTemporal.transform.position = fatherBullets.transform.position;
-                balaTemporal.SetActive(true);
+                bulletToShoot.transform.position = bulletsParent.transform.position;
+                bulletToShoot.SetActive(true);
             }
             else
             {
-                Debug.Log("Sin balas");
+                Debug.Log("No ammo");
             }
         }
-        
     }
-
 }

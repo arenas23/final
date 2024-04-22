@@ -8,7 +8,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] Transform playerBody;
     [SerializeField] GameObject player;
     [SerializeField] float xRotation = 0;
-    
+
     void Start()
     {
         player = GameObject.Find("Player");
@@ -16,7 +16,7 @@ public class CameraController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    
+
     void LateUpdate()
     {
         CameraMove();
@@ -28,11 +28,8 @@ public class CameraController : MonoBehaviour
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
         xRotation -= mouseY;
-
         xRotation = Mathf.Clamp(xRotation, -40f, 30f);
-
         transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
-
         playerBody.Rotate(Vector3.up * mouseX);
     }
 }
