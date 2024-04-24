@@ -21,7 +21,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] LayerMask groundMask;
     [SerializeField] float sphereRadius = 0.3f;
     [SerializeField] bool isGrounded;
-
+    public float Health
+    {
+        get { return health; }
+    }
 
     void Start()
     {
