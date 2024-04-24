@@ -19,8 +19,13 @@ public class Enemy : MonoBehaviour
 
     // Last Know Position of the Player, updated when in sight
     public Vector3 LastKnowPos { get => lastKnowPos; set => lastKnowPos = value; }
+    [Header("Health")]
+    [SerializeField] private float maxHealth = 100f;
+    [SerializeField] private float health;
+    [SerializeField] private HealthBar healthBar;
+    [SerializeField] private Canvas canvas;
 
-    [Header("Weapon Values")]
+    [Header("Weapon")]
     public Transform gunBarrel;
     [Range(0.1f, 10f)] public float fireRate;
     [SerializeField] private string currentState;
@@ -43,6 +48,8 @@ public class Enemy : MonoBehaviour
         rootColider = GetComponent<CapsuleCollider>();
         stateMachine.Initialize();
         player = GameObject.FindWithTag("Player");
+        health = maxHealth;
+        SetupHealthBar(canvas, Camera.main);
     }
 
     void Update()
@@ -50,7 +57,6 @@ public class Enemy : MonoBehaviour
         // Get agent speed and set it into the animator
         animatorSpeed = agent.velocity.magnitude;
         animator.SetFloat("speed", animatorSpeed);
-
 
         currentState = stateMachine.activeState.ToString();
         //debugsphere.transform.position = lastKnowPos; //Revisar cual va
@@ -91,5 +97,31 @@ public class Enemy : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+
+        healthBar.SetProgress(health / maxHealth, 3f);
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        Debug.Log("Enemy died");
+        Destroy(gameObject);
+    }
+
+    public void SetupHealthBar(Canvas canvas, Camera camera)
+    {
+        healthBar.transform.SetParent(canvas.transform);
+        if (healthBar.TryGetComponent<FaceCamera>(out FaceCamera faceCamera))
+        {
+            faceCamera.camera = camera;
+        }
     }
 }

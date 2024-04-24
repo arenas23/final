@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     CharacterController characterController;
     Animator animator;
+    [SerializeField] float health = 100f;
 
     [Header("Movement")]
     [SerializeField] float speed = 5f;
@@ -80,4 +81,29 @@ public class PlayerController : MonoBehaviour
             speed = walkSpeed;
         }
     }
+
+    public void Heal(float heal)
+    {
+        health += heal;
+        if (health > 100f)
+        {
+            health = 100f;
+        }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        health -= damage;
+        if (health <= 0f)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        Debug.Log("Player died");
+        Destroy(gameObject);
+    }
+
 }

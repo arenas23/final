@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    [SerializeField] float damage = 10f;
     [SerializeField] float lifeTimeBullet = 5f;
     [SerializeField] float shootTime;
     [SerializeField] float shootForce = 200f;
     [SerializeField] Transform bulletsParent;
 
-    private Vector3 lastPosition;
     [SerializeField] LayerMask hitLayers;
+    private Vector3 lastPosition;
 
     private void Start()
     {
@@ -56,9 +57,13 @@ public class Bullet : MonoBehaviour
 
         if (Physics.Raycast(lastPosition, direction, out RaycastHit hit, distance, hitLayers))
         {
-            EnemyHealth enemyHealth = hit.collider.GetComponent<EnemyHealth>();
-            DamageManager.instance.DamageEnemy(enemyHealth);
-            gameObject.SetActive(false);
+            if (hit.collider.GetComponent<Enemy>() != null)
+            {
+                Debug.Log("Hit enemy");
+                Enemy enemy = hit.collider.GetComponent<Enemy>();
+                enemy.TakeDamage(damage);
+                gameObject.SetActive(false);
+            }
         }
     }
 }
