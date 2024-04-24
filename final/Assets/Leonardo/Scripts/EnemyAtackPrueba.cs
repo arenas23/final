@@ -11,9 +11,7 @@ public class EnemyAtackPrueba : MonoBehaviour
     public List<GameObject> bulletEnemyList;
     [SerializeField] GameObject bulletEnemyPrefab;
     [SerializeField] int bulletEnemyCartridge = 20;
-    [SerializeField] float shootingDistance = 10f;
-    
-
+   
 
     void Start()
     {

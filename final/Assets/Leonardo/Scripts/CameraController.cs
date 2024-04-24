@@ -8,9 +8,11 @@ public class CameraController : MonoBehaviour
     [SerializeField] Transform playerBody;
     [SerializeField] GameObject player;
     [SerializeField] float xRotation = 0;
+   
     
     void Start()
     {
+     
         player = GameObject.Find("Player");
         playerBody = player.GetComponent<Transform>();
         Cursor.lockState = CursorLockMode.Locked;
@@ -20,6 +22,7 @@ public class CameraController : MonoBehaviour
     void LateUpdate()
     {
         CameraMove();
+     
     }
 
     void CameraMove()
@@ -34,5 +37,7 @@ public class CameraController : MonoBehaviour
         transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
 
         playerBody.Rotate(Vector3.up * mouseX);
+        
     }
+ 
 }
