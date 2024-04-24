@@ -21,10 +21,9 @@ public class DamageManager : MonoBehaviour
         {
             Destroy(this);
         }
-
     }
 
-    public void DamageEnemy (EnemyHealth enemyHealth)
+    public void DamageEnemy(EnemyHealth enemyHealth)
     {
         Debug.Log(enemyHealth);
         if (enemyHealth != null)
@@ -38,7 +37,6 @@ public class DamageManager : MonoBehaviour
         Debug.Log(playerHealth);
         if (playerHealth != null)
         {
-            
             playerHealth.TakeDamage(damage);
         }
     }

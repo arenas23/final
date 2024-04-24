@@ -52,10 +52,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17df8dd79ff265f43ba1f6b67c8a02c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 10
   lifeTimeBullet: 5
   shootTime: 0
   shootForce: 200
-  fatherBullets: {fileID: 0}
+  bulletsParent: {fileID: 0}
   hitLayers:
     serializedVersion: 2
     m_Bits: 72

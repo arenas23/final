@@ -5,44 +5,46 @@ using UnityEngine;
 
 public class EnemyAtackPrueba : MonoBehaviour
 {
-  
-
-    [SerializeField] Transform fatherBullets;
+    [SerializeField] Transform bulletsParent;
     public List<GameObject> bulletEnemyList;
-    [SerializeField] GameObject bulletEnemyPrefab;
-    [SerializeField] int bulletEnemyCartridge = 20;
-    [SerializeField] float shootingDistance = 10f;
-    
-
+    [SerializeField] GameObject bulletPrefab;
+    [SerializeField] int bulletCartridge = 20;
+    private GameObject tempBullet;
 
     void Start()
     {
-        fatherBullets = GameObject.Find("BalasEnemyPadre").GetComponent<Transform>();
+        bulletsParent = GameObject.Find("BalasEnemyPadre").GetComponent<Transform>();
         BulletInstantiate();
     }
 
     void Update()
     {
-       
-       
+
     }
 
+    /// <summary>
+    /// Instantiates a list of bullet game objects based on the number specified in the bulletEnemyCartridge field.
+    /// Each instantiated bullet is set to be inactive and added to the bulletEnemyList.
+    /// </summary>
     void BulletInstantiate()
     {
         bulletEnemyList = new List<GameObject>();
-        GameObject balaTemporal;
 
-        for (int i = 0; i < bulletEnemyCartridge; i++)
+        for (int i = 0; i < bulletCartridge; i++)
         {
-            balaTemporal = Instantiate(bulletEnemyPrefab);
-            balaTemporal.SetActive(false);
-            bulletEnemyList.Add(balaTemporal);
+            tempBullet = Instantiate(bulletPrefab);
+            tempBullet.SetActive(false);
+            bulletEnemyList.Add(tempBullet);
         }
     }
 
+    /// <summary>
+    /// Retrieves the first inactive bullet from the bulletEnemyList.
+    /// </summary>
+    /// <returns>The first inactive bullet game object, or null if all bullets are active.</returns>
     GameObject GetBullets()
     {
-        for (int i = 0; i < bulletEnemyCartridge; i++)
+        for (int i = 0; i < bulletCartridge; i++)
         {
             if (!bulletEnemyList[i].activeInHierarchy)
             {
@@ -52,19 +54,17 @@ public class EnemyAtackPrueba : MonoBehaviour
         return null;
     }
 
-    public void ShootAmo()
+    public void ShootAmmo()
     {
-        GameObject balaTemporal = GetBullets();
-        if (balaTemporal != null)
+        GameObject bulletToShoot = GetBullets();
+        if (bulletToShoot != null)
         {
-            balaTemporal.transform.position = fatherBullets.transform.position;
-            balaTemporal.SetActive(true);
+            bulletToShoot.transform.position = bulletsParent.transform.position;
+            bulletToShoot.SetActive(true);
         }
         else
         {
-            Debug.Log("Sin balas");
+            Debug.Log("No ammo");
         }
-
     }
-
 }
