@@ -5,24 +5,18 @@ using UnityEngine;
 public class SearchState : BaseState
 {
     private float searchTimer;
+    private float losePlayerTime = 10f;
     private float moveTimer;
 
     public override void Do()
     {
         if (enemy.CanSeePlayer())
-        
-            stateMachine.ChangeState(new AtackState1());
+            stateMachine.ChangeState(new AttackState());
 
-        Debug.Log("enemy.Agent.remainingDistance: " + enemy.Agent.remainingDistance);
-        Debug.Log("enemy.Agent.stoppingDistance: " + enemy.Agent.stoppingDistance);
-
-
-        if (enemy.Agent.remainingDistance <= enemy.Agent.stoppingDistance) //cuidado
+        if (enemy.Agent.remainingDistance >= enemy.Agent.stoppingDistance) //cuidado
         {
             searchTimer += Time.deltaTime;
             moveTimer += Time.deltaTime;
-
-            Debug.Log("Entro al if " + searchTimer);
 
             if (moveTimer > Random.Range(3, 5))
             {
@@ -30,24 +24,21 @@ public class SearchState : BaseState
                 moveTimer = 0;
             }
 
-
-            if (searchTimer > 10)
+            if (searchTimer > losePlayerTime)
             {
                 stateMachine.ChangeState(new PatrolState());
             }
         }
-
     }
 
     public override void Enter()
     {
         enemy.Agent.SetDestination(enemy.LastKnowPos);
+        Debug.Log("Entering Search State");
     }
 
     public override void Exit()
     {
-        
-    }
 
-   
+    }
 }

@@ -22,7 +22,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float sphereRadius = 0.3f;
     [SerializeField] bool isGrounded;
 
-    
+
+
     void Start()
     {
         groundCheck = transform.Find("GroundCheck");

@@ -1,11 +1,14 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PatrolState : BaseState
 {
-    public int wayPointIndex = 0;
-    public float waitTimer;
+    private int wayPointIndex = 0;
+    private float waitTimer;
+    // Amount of time to wait before moving to the next waypoint.
+    private float waitTime = 3f;
     public override void Enter()
     {
 
@@ -16,9 +19,8 @@ public class PatrolState : BaseState
         PatrolCycle();
         if (enemy.CanSeePlayer())
         {
-            stateMachine.ChangeState(new AtackState1());
+            stateMachine.ChangeState(new AttackState());
         }
-
     }
 
     public override void Exit()
@@ -26,12 +28,20 @@ public class PatrolState : BaseState
 
     }
 
+    /// <summary>
+    /// Executes the patrol cycle for the enemy.
+    /// </summary>
+    /// <remarks>
+    /// This method is responsible for moving the enemy along a predefined path in enemy.path (GameObject).
+    /// It checks the remaining distance of the enemy's agent and waits for a certain amount of time
+    /// before moving to the next waypoint.
+    /// </remarks>
     public void PatrolCycle()
     {
         if (enemy.Agent.remainingDistance < 0.2f)
         {
             waitTimer += Time.deltaTime;
-            if (waitTimer >= 3f)
+            if (waitTimer >= waitTime)
             {
                 if (wayPointIndex < enemy.path.wayPoints.Count - 1)
                 {
@@ -41,7 +51,6 @@ public class PatrolState : BaseState
                 {
                     wayPointIndex = 0;
                 }
-                
                 enemy.Agent.SetDestination(enemy.path.wayPoints[wayPointIndex].position);
                 waitTimer = 0f;
             }
