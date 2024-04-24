@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
+    [SerializeField] float damage = 10f;
     [SerializeField] float lifeTimeBullet = 5f;
     [SerializeField] float shootTime;
     [SerializeField] float shootForce = 200f;
@@ -54,14 +55,16 @@ public class EnemyBullet : MonoBehaviour
     {
         Vector3 direction = transform.position - lastPosition;
         float distance = direction.magnitude;
-        Debug.Log("Ray Drawn");
-        //Debug.DrawRay(lastPosition, direction * distance, Color.red);
 
         if (Physics.Raycast(lastPosition, direction, out RaycastHit hit, distance, hitLayers))
         {
-            PlayerHealth playerHealth = hit.collider.GetComponent<PlayerHealth>();
-            DamageManager.instance.DamagePlayer(playerHealth);
-            gameObject.SetActive(false);
+            if (hit.collider.GetComponent<PlayerController>() != null)
+            {
+                Debug.Log("Hit player");
+                PlayerController player = hit.collider.GetComponent<PlayerController>();
+                player.TakeDamage(damage);
+                gameObject.SetActive(false);
+            }
         }
     }
 }

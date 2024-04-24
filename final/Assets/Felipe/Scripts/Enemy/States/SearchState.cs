@@ -13,7 +13,7 @@ public class SearchState : BaseState
         if (enemy.CanSeePlayer())
             stateMachine.ChangeState(new AttackState());
 
-        if (enemy.Agent.remainingDistance <= enemy.Agent.stoppingDistance) //cuidado
+        if (enemy.Agent.remainingDistance >= enemy.Agent.stoppingDistance) //cuidado
         {
             searchTimer += Time.deltaTime;
             moveTimer += Time.deltaTime;
@@ -34,6 +34,7 @@ public class SearchState : BaseState
     public override void Enter()
     {
         enemy.Agent.SetDestination(enemy.LastKnowPos);
+        Debug.Log("Entering Search State");
     }
 
     public override void Exit()
