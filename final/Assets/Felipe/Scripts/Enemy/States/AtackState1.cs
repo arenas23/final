@@ -7,7 +7,20 @@ public class AtackState1 : BaseState
     private float moveTimer;
     private float losePlayerTimer;
     private float shotTimer;
-  
+
+
+    private AudioSource audioSource; //Audio
+    [SerializeField] private AudioClip colectar1; //Audio
+
+    [SerializeField] private AudioClip colectar2; //Audio
+
+
+    private void Start()
+    {
+        //audioSource = GetComponent<AudioSource>();
+
+    }
+
 
     public override void Do()
     {

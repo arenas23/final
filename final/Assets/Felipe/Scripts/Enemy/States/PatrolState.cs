@@ -1,9 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PatrolState : BaseState
 {
+     
+
     public int wayPointIndex = 0;
     public float waitTimer;
     public override void Enter()
