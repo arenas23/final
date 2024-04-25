@@ -13,6 +13,8 @@ public class Bullet : MonoBehaviour
     [SerializeField] LayerMask hitLayers;
     private Vector3 lastPosition;
 
+    [SerializeField] GameObject electricalParticle;
+
     private void Start()
     {
 
@@ -59,10 +61,13 @@ public class Bullet : MonoBehaviour
         {
             if (hit.collider.GetComponent<Enemy>() != null)
             {
-                Debug.Log("Hit enemy");
+                GameObject newParticle = Instantiate(electricalParticle, transform);
+                newParticle.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z - 1);
+                newParticle.transform.rotation = new Quaternion(0, transform.rotation.y - 180f,0 ,0);
                 Enemy enemy = hit.collider.GetComponent<Enemy>();
                 enemy.TakeDamage(damage);
                 gameObject.SetActive(false);
+                
             }
         }
     }
