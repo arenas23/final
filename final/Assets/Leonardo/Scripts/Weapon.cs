@@ -74,6 +74,7 @@ public class Weapon : MonoBehaviour
             {
                 bulletToShoot.transform.position = bulletsParent.transform.position;
                 bulletToShoot.SetActive(true);
+                AudioManager.Instance.PlaySfx("laser_gun");
             }
             else
             {

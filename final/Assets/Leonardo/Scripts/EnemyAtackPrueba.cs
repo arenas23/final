@@ -61,6 +61,7 @@ public class EnemyAtackPrueba : MonoBehaviour
         {
             bulletToShoot.transform.position = bulletsParent.transform.position;
             bulletToShoot.SetActive(true);
+            AudioManager.Instance.PlaySfx("enemy_shot");
         }
         else
         {

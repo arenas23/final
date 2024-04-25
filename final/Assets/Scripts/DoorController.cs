@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -21,6 +20,7 @@ public class DoorController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.E) && canOpen){
             Debug.Log("entre");
             animator.Play("abrir");
+            AudioManager.Instance.PlaySfx("door_open");
         }
 
         

@@ -11,7 +11,6 @@ public class AttackState : BaseState
     private float shotTimer;
 
 
-    private AudioSource audioSource; //Audio
     [SerializeField] private AudioClip colectar1; //Audio
 
     [SerializeField] private AudioClip colectar2; //Audio
