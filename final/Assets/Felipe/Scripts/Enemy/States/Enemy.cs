@@ -115,6 +115,7 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             Die();
+            GameManager.Instance.defeatedEnemies += 1;
         }
         else
         {
