@@ -106,6 +106,7 @@ public class PlayerController : MonoBehaviour
     private void Die()
     {
         Debug.Log("Player died");
+        GameManager.Instance.LosePlayer();
         Destroy(gameObject);
     }
 

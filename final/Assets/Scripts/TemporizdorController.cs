@@ -33,8 +33,11 @@ public class TemporizdorController : MonoBehaviour
 
         tiempo.text = "Time: " + minutes.ToString("00") + " : " + seconds.ToString("00");
 
-        if (minutesInSeconds == 0)
+        if (minutesInSeconds == 0){
+            GameManager.Instance.LosePlayer();
             yield return null;
+        }
+            
         else
             StartCoroutine(CountBackSeconds());
 

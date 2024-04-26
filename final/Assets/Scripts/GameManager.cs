@@ -67,4 +67,16 @@ public class GameManager : MonoBehaviour
         defeatedEnemies = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+    public void ExitGame(){
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        Time.timeScale = 1;
+        defeatedEnemies = 0;
+        SceneManager.LoadScene("Main Menu");
+    }
+
+    public void LosePlayer(){
+        loseCanvas.gameObject.SetActive(true);
+        PauseGame();
+    }
 }

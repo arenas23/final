@@ -14,7 +14,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Felipe/Scenes/Level1_Asset_Test.unity
     guid: e220bc9c5c787d64f884ea36f4d61d8a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level1_Asset_Test 1.unity
     guid: 9d26d27fd2e6d524fa3ef871e22b60fd
+  - enabled: 1
+    path: Assets/Scenes/Level1_Asset_ Environment.unity
+    guid: 259f3a2d49788354b9e77a6eb5e7476c
   m_configObjects: {}
