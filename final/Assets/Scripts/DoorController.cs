@@ -11,6 +11,7 @@ public class DoorController : MonoBehaviour
     public Image open1, open2;
     public TextMeshProUGUI unlock1, unlock2;
     private bool canOpen = false;
+    private bool isOpen = false;
 
     public void Start()
     {
@@ -23,6 +24,7 @@ public class DoorController : MonoBehaviour
         {
             // Debug.Log("entre");
             animator.Play("abrir");
+            isOpen = true;
             AudioManager.Instance.PlaySfx("door_open");
         }
 
@@ -51,7 +53,11 @@ public class DoorController : MonoBehaviour
             open2.gameObject.SetActive(false);
             unlock2.gameObject.SetActive(true);
             canOpen = false;
-            animator.Play("cerrar");
+            if(isOpen){
+                animator.Play("cerrar");
+                isOpen = false;
+            }
+         
         }
     }
 }
