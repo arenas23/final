@@ -68,7 +68,6 @@ public class Weapon : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-
             GameObject bulletToShoot = GetBullets();
             if (bulletToShoot != null)
             {

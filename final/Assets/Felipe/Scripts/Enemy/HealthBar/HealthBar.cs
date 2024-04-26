@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
     [SerializeField] private Image ProgressImage;
-    [SerializeField] private float lerpSpeed = 1f;
+    [SerializeField] private float lerpSpeed = 5f;
     [SerializeField] private UnityEvent<float> OnProgress;
     [SerializeField] private UnityEvent OnCompleted;
     [SerializeField] private Coroutine AnimationCoroutine;

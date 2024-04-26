@@ -78,9 +78,8 @@ public class AttackState : BaseState
         Vector3 shootDirection = (enemy.Player.transform.position - gunbarrel.transform.position).normalized;
 
         // Calls the ShootAmmo method in the EnemyAtackPrueba script, which shoots exactly one bullet
-        enemy.GetComponent<EnemyAtackPrueba>().ShootAmmo();
-
         shotTimer = 0;
+        enemy.GetComponent<EnemyAtackPrueba>().ShootAmmo();
     }
 
     public override void Exit()

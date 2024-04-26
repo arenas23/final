@@ -99,6 +99,10 @@ public class Enemy : MonoBehaviour
         return false;
     }
 
+
+
+
+
     public void TakeDamage(float damage)
     {
         health -= damage;
@@ -108,6 +112,19 @@ public class Enemy : MonoBehaviour
         {
             Die();
         }
+        else
+        {
+            StartCoroutine(AttackOnDamageTaken());
+        }
+    }
+
+    IEnumerator AttackOnDamageTaken()
+    {
+        fieldOfView = 180f;
+        sightRange = 50f;
+        yield return new WaitForSeconds(0.5f);
+        fieldOfView = 85f;
+        sightRange = 20f;
     }
 
     private void Die()

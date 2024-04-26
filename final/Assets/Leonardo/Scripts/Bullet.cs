@@ -61,9 +61,8 @@ public class Bullet : MonoBehaviour
             {
                 Enemy enemy = hit.collider.GetComponent<Enemy>();
                 enemy.TakeDamage(damage);
-                gameObject.SetActive(false);
-                
             }
+            gameObject.SetActive(false);
         }
     }
 }
