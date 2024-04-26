@@ -41,6 +41,7 @@ public class AttackState : BaseState
     {
         if (enemy.CanSeePlayer())
         {
+            enemy.Agent.isStopped = true;
             losePlayerTimer = 0;
             moveTimer += Time.deltaTime;
             shotTimer += Time.deltaTime;
@@ -48,7 +49,6 @@ public class AttackState : BaseState
 
             if (shotTimer > enemy.fireRate)
             {
-                enemy.Agent.isStopped = true;
                 Shoot();
             }
             if (moveTimer > Random.Range(3, 7))
@@ -61,6 +61,7 @@ public class AttackState : BaseState
         }
         else
         {
+            enemy.Agent.isStopped = false;
             losePlayerTimer += Time.deltaTime;
             if (losePlayerTimer > losePlayerTime)
             {

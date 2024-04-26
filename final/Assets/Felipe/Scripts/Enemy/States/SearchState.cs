@@ -34,7 +34,7 @@ public class SearchState : BaseState
     public override void Enter()
     {
         enemy.Agent.SetDestination(enemy.LastKnowPos);
-        Debug.Log("Entering Search State");
+
     }
 
     public override void Exit()

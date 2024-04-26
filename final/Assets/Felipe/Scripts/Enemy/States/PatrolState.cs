@@ -11,11 +11,12 @@ public class PatrolState : BaseState
     private float waitTime = 3f;
     public override void Enter()
     {
-
+        enemy.Agent.SetDestination(enemy.transform.position);
     }
 
     public override void Do()
     {
+        Debug.DrawRay(enemy.transform.position, enemy.transform.forward * enemy.sightRange, Color.magenta);
         PatrolCycle();
         if (enemy.CanSeePlayer())
         {

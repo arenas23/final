@@ -12,23 +12,28 @@ public class DoorController : MonoBehaviour
     public TextMeshProUGUI unlock1, unlock2;
     private bool canOpen = false;
 
-    public void Start(){
+    public void Start()
+    {
         animator = GetComponentInParent<Animator>();
     }
 
-    void Update(){
-        if(Input.GetKeyDown(KeyCode.E) && canOpen){
-            Debug.Log("entre");
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.E) && canOpen)
+        {
+            // Debug.Log("entre");
             animator.Play("abrir");
             AudioManager.Instance.PlaySfx("door_open");
         }
 
-        
+
     }
 
-    void OnTriggerEnter(Collider other){
+    void OnTriggerEnter(Collider other)
+    {
 
-        if(other.CompareTag("Player")){
+        if (other.CompareTag("Player"))
+        {
             open1.gameObject.SetActive(true);
             unlock1.gameObject.SetActive(false);
             open2.gameObject.SetActive(true);
@@ -37,8 +42,10 @@ public class DoorController : MonoBehaviour
         }
     }
 
-    void OnTriggerExit(Collider other){
-        if(other.CompareTag("Player")){
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
             open1.gameObject.SetActive(false);
             unlock1.gameObject.SetActive(true);
             open2.gameObject.SetActive(false);
@@ -46,5 +53,5 @@ public class DoorController : MonoBehaviour
             canOpen = false;
             animator.Play("cerrar");
         }
-    } 
+    }
 }

@@ -36,8 +36,12 @@ public class Enemy : MonoBehaviour
     //private GameObject debugsphere; // Revizar si es player y siborrar.
 
     [Header("Sight Values")]
-    public float sightRange = 20f;
+    public float sightRange = 80f;
+    public float sightRangeNormal = 80f;
+    public float sightRangeAlert = 150f;
     public float fieldOfView = 85f;
+    public float fieldOfViewNormal = 85f;
+    public float fieldOfViewAlert = 180f;
     public float eyeHeight;
 
     void Start()
@@ -120,11 +124,11 @@ public class Enemy : MonoBehaviour
 
     IEnumerator AttackOnDamageTaken()
     {
-        fieldOfView = 180f;
-        sightRange = 50f;
+        fieldOfView = fieldOfViewAlert;
+        sightRange = sightRangeAlert;
         yield return new WaitForSeconds(0.5f);
-        fieldOfView = 85f;
-        sightRange = 20f;
+        fieldOfView = fieldOfViewNormal;
+        sightRange = sightRangeNormal;
     }
 
     private void Die()
