@@ -22,10 +22,9 @@ public class EnemyBullet : MonoBehaviour
     {
         lastPosition = transform.position;
 
-        bulletsParent = GameObject.Find("BalasEnemyPadre").GetComponent<Transform>();
         shootTime = 0f;
 
-        GetComponent<Rigidbody>().AddForce(bulletsParent.forward * shootForce, ForceMode.Impulse);
+        GetComponent<Rigidbody>().AddForce(transform.forward * shootForce, ForceMode.Impulse);
     }
 
     void Update()

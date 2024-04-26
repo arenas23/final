@@ -13,7 +13,7 @@ public class EnemyAtackPrueba : MonoBehaviour
 
     void Start()
     {
-        bulletsParent = GameObject.Find("BalasEnemyPadre").GetComponent<Transform>();
+     
         BulletInstantiate();
     }
 
@@ -32,7 +32,7 @@ public class EnemyAtackPrueba : MonoBehaviour
 
         for (int i = 0; i < bulletCartridge; i++)
         {
-            tempBullet = Instantiate(bulletPrefab);
+            tempBullet = Instantiate(bulletPrefab,bulletsParent);
             tempBullet.SetActive(false);
             bulletEnemyList.Add(tempBullet);
         }
@@ -60,7 +60,9 @@ public class EnemyAtackPrueba : MonoBehaviour
         if (bulletToShoot != null)
         {
             bulletToShoot.transform.position = bulletsParent.transform.position;
+            bulletToShoot.transform.localScale = new Vector3(0.02f, 0.02f, 0.02f);
             bulletToShoot.SetActive(true);
+            
             AudioManager.Instance.PlaySfx("enemy_shot");
         }
         else
