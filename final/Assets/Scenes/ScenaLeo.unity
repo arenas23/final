@@ -3865,6 +3865,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy1
       objectReference: {fileID: 0}
+    - target: {fileID: 1288507150104634186, guid: b0fc6008e01440e4baa61255f7eba7ae,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3638232971974051739, guid: b0fc6008e01440e4baa61255f7eba7ae,
         type: 3}
       propertyPath: m_Camera
@@ -4638,12 +4643,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  speed: 5
-  walkSpeed: 5
-  runSpeed: 10
   jumpForce: 3
   gravity: -30
-  groundCheck: {fileID: 0}
+  groundCheck: {fileID: 1969278379}
   groundMask:
     serializedVersion: 2
     m_Bits: 8

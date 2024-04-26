@@ -58,8 +58,6 @@ MonoBehaviour:
   hitLayers:
     serializedVersion: 2
     m_Bits: 136
-  electricalParticle: {fileID: 1000011396044746, guid: 96b2ec0239d11fa4b9792311efceb8ed,
-    type: 3}
 --- !u!33 &7671900190803693642
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -118,10 +116,10 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7671900190803693621}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1.5
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!108 &7671900190803693647
 Light:

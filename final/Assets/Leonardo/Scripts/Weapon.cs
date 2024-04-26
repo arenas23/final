@@ -68,12 +68,12 @@ public class Weapon : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-
             GameObject bulletToShoot = GetBullets();
             if (bulletToShoot != null)
             {
                 bulletToShoot.transform.position = bulletsParent.transform.position;
                 bulletToShoot.SetActive(true);
+                AudioManager.Instance.PlaySfx("laser_gun");
             }
             else
             {

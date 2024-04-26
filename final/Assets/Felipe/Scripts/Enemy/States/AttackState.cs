@@ -11,7 +11,6 @@ public class AttackState : BaseState
     private float shotTimer;
 
 
-    private AudioSource audioSource; //Audio
     [SerializeField] private AudioClip colectar1; //Audio
 
     [SerializeField] private AudioClip colectar2; //Audio
@@ -42,6 +41,7 @@ public class AttackState : BaseState
     {
         if (enemy.CanSeePlayer())
         {
+            enemy.Agent.isStopped = true;
             losePlayerTimer = 0;
             moveTimer += Time.deltaTime;
             shotTimer += Time.deltaTime;
@@ -49,7 +49,6 @@ public class AttackState : BaseState
 
             if (shotTimer > enemy.fireRate)
             {
-                enemy.Agent.isStopped = true;
                 Shoot();
             }
             if (moveTimer > Random.Range(3, 7))
@@ -62,6 +61,7 @@ public class AttackState : BaseState
         }
         else
         {
+            enemy.Agent.isStopped = false;
             losePlayerTimer += Time.deltaTime;
             if (losePlayerTimer > losePlayerTime)
             {
@@ -79,9 +79,8 @@ public class AttackState : BaseState
         Vector3 shootDirection = (enemy.Player.transform.position - gunbarrel.transform.position).normalized;
 
         // Calls the ShootAmmo method in the EnemyAtackPrueba script, which shoots exactly one bullet
-        enemy.GetComponent<EnemyAtackPrueba>().ShootAmmo();
-
         shotTimer = 0;
+        enemy.GetComponent<EnemyAtackPrueba>().ShootAmmo();
     }
 
     public override void Exit()

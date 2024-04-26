@@ -63,8 +63,8 @@ public class EnemyBullet : MonoBehaviour
                 Debug.Log("Hit player");
                 PlayerController player = hit.collider.GetComponent<PlayerController>();
                 player.TakeDamage(damage);
-                gameObject.SetActive(false);
             }
+            gameObject.SetActive(false);
         }
     }
 }
