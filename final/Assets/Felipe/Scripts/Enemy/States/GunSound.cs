@@ -12,7 +12,7 @@ public class GunSound : MonoBehaviour
     //[SerializeField] private AudioClip colectar2; //Audio
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         audioSource =  GetComponent<AudioSource>();
         audioSource.PlayOneShot(colectar1);

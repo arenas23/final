@@ -9,6 +9,8 @@ public class PatrolState : BaseState
     private float waitTimer;
     // Amount of time to wait before moving to the next waypoint.
     private float waitTime = 3f;
+
+    
     public override void Enter()
     {
 

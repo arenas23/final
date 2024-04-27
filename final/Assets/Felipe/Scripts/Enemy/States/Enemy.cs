@@ -14,6 +14,9 @@ public class Enemy : MonoBehaviour
     public float animatorSpeed;
     private Vector3 lastKnowPos;
 
+    //private AudioSource audioSource; //Audio
+    //[SerializeField] private AudioClip audioClip; //Audio
+
     public NavMeshAgent Agent { get => agent; }
     public GameObject Player { get => player; }
 
@@ -50,6 +53,9 @@ public class Enemy : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         health = maxHealth;
         SetupHealthBar(canvas, Camera.main);
+
+        //audioSource = GetComponent<AudioSource>();
+        //audioSource.PlayOneShot(audioClip);
     }
 
     void Update()
@@ -57,7 +63,8 @@ public class Enemy : MonoBehaviour
         // Get agent speed and set it into the animator
         animatorSpeed = agent.velocity.magnitude;
         animator.SetFloat("speed", animatorSpeed);
-
+        //audioSource.PlayOneShot(audioClip); // Audio
+        
         currentState = stateMachine.activeState.ToString();
         //debugsphere.transform.position = lastKnowPos; //Revisar cual va
     }
@@ -73,6 +80,7 @@ public class Enemy : MonoBehaviour
             // Is the player close enough to be seen
             if (Vector3.Distance(transform.position, player.transform.position) < sightRange)
             {
+                
                 Vector3 targetDirection = player.transform.position - transform.position + (Vector3.up * eyeHeight);
                 float angleToPlayer = Vector3.Angle(targetDirection, transform.forward);
 
