@@ -13,7 +13,7 @@ public class AttackState : BaseState
 
     [SerializeField] private AudioClip colectar1; //Audio
 
-    [SerializeField] private AudioClip colectar2; //Audio
+    //[SerializeField] private AudioClip colectar2; //Audio
 
 
     private void Start()
