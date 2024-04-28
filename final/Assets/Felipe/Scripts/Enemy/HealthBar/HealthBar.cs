@@ -14,6 +14,7 @@ public class HealthBar : MonoBehaviour
     [SerializeField] private Coroutine AnimationCoroutine;
     [SerializeField] private Gradient gradient;
 
+
     private void Start()
     {
         if (ProgressImage.type != Image.Type.Filled)
@@ -23,6 +24,7 @@ public class HealthBar : MonoBehaviour
         }
     }
 
+
     public void SetProgress(float progress)
     {
         SetProgress(progress, lerpSpeed);
@@ -30,6 +32,7 @@ public class HealthBar : MonoBehaviour
 
     public void SetProgress(float progress, float speed)
     {
+        Debug.Log("Set progress: " + progress + " by " + gameObject.name);
         if (progress < 0 || progress > 1)
         {
             Debug.LogWarning($"{progress} progress must be between 0 and 1");
@@ -47,20 +50,23 @@ public class HealthBar : MonoBehaviour
 
     private IEnumerator AnimateProgress(float progress, float speed)
     {
-        float time = 0f;
-        float initialProgress = ProgressImage.fillAmount;
-
-        while (time < 1f)
+        if (gameObject.name == "ProgressBar")
         {
-            ProgressImage.fillAmount = Mathf.Lerp(initialProgress, progress, time);
-            time += Time.deltaTime * speed;
+            float time = 0f;
+            float initialProgress = ProgressImage.fillAmount;
 
-            ProgressImage.color = gradient.Evaluate(ProgressImage.fillAmount);
+            while (time < 1f)
+            {
+                ProgressImage.fillAmount = Mathf.Lerp(initialProgress, progress, time);
+                Debug.Log("Fill amount: " + progress);
+                time += Time.deltaTime * speed;
 
-            OnProgress?.Invoke(ProgressImage.fillAmount);
-            yield return null;
+                ProgressImage.color = gradient.Evaluate(ProgressImage.fillAmount);
+
+                OnProgress?.Invoke(ProgressImage.fillAmount);
+                yield return null;
+            }
         }
-
         ProgressImage.fillAmount = progress;
         ProgressImage.color = gradient.Evaluate(ProgressImage.fillAmount);
         OnProgress?.Invoke(progress);

@@ -9,9 +9,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float health = 100f;
 
     [Header("Movement")]
-     float speed = 20f;
-     float walkSpeed = 20f;
-     float runSpeed = 30f;
+    float speed = 20f;
+    float walkSpeed = 20f;
+    float runSpeed = 30f;
     [SerializeField] float jumpForce = 3;
     [SerializeField] float gravity = -9.8f;
     private Vector3 velocity;

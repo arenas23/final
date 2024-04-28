@@ -68,7 +68,7 @@ public class Enemy : MonoBehaviour
         animatorSpeed = agent.velocity.magnitude;
         animator.SetFloat("speed", animatorSpeed);
         //audioSource.PlayOneShot(audioClip); // Audio
-        
+
         currentState = stateMachine.activeState.ToString();
         //debugsphere.transform.position = lastKnowPos; //Revisar cual va
     }
@@ -84,7 +84,7 @@ public class Enemy : MonoBehaviour
             // Is the player close enough to be seen
             if (Vector3.Distance(transform.position, player.transform.position) < sightRange)
             {
-                
+
                 Vector3 targetDirection = player.transform.position - transform.position + (Vector3.up * eyeHeight);
                 float angleToPlayer = Vector3.Angle(targetDirection, transform.forward);
 
@@ -111,15 +111,11 @@ public class Enemy : MonoBehaviour
         return false;
     }
 
-
-
-
-
     public void TakeDamage(float damage)
     {
         health -= damage;
 
-        healthBar.SetProgress(health / maxHealth, 3f);
+        healthBar.SetProgress(health / maxHealth, 5f);
         if (health <= 0)
         {
             Die();
