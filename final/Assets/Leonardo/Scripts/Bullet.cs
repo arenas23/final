@@ -57,6 +57,7 @@ public class Bullet : MonoBehaviour
 
         if (Physics.Raycast(lastPosition, direction, out RaycastHit hit, distance, hitLayers))
         {
+            Debug.Log(hit.collider.gameObject.name);
             if (hit.collider.GetComponent<Enemy>() != null)
             {
                 Enemy enemy = hit.collider.GetComponent<Enemy>();

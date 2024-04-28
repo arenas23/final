@@ -32,7 +32,6 @@ public class HealthBar : MonoBehaviour
 
     public void SetProgress(float progress, float speed)
     {
-        Debug.Log("Set progress: " + progress + " by " + gameObject.name);
         if (progress < 0 || progress > 1)
         {
             Debug.LogWarning($"{progress} progress must be between 0 and 1");

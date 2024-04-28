@@ -49,15 +49,15 @@ public class Weapon : MonoBehaviour
         if (heat > 0)
         {
             heat -= coolRate * Time.deltaTime;
-            Debug.Log("Weapon heat: " + heat / maxHeat);
             healthBar.SetProgress(heat / maxHeat);
         }
 
         if (heat < 0)
         {
             heat = 0;
+            if (!canShoot) coolRate -= 10f;
             canShoot = true;
-            coolRate -= 10f;
+
         }
 
 
@@ -94,7 +94,6 @@ public class Weapon : MonoBehaviour
         if (bulletToShoot != null)
         {
             heat += heatPerBullet;
-            Debug.Log("Weapon heat: " + heat / maxHeat);
             healthBar.SetProgress(heat / maxHeat);
 
             if (heat >= maxHeat)

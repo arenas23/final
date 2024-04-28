@@ -75,8 +75,8 @@ public class AttackState : BaseState
     public void Shoot()
     {
         // Sets the shootDirection to the direction from the gun barrel to the player
-        Transform gunbarrel = enemy.gunBarrel;
-        Vector3 shootDirection = (enemy.Player.transform.position - gunbarrel.transform.position).normalized;
+        // Transform gunbarrel = enemy.gunBarrel;
+        // Vector3 shootDirection = (enemy.Player.transform.position - gunbarrel.transform.position).normalized;
 
         // Calls the ShootAmmo method in the EnemyAtackPrueba script, which shoots exactly one bullet
         shotTimer = 0;
