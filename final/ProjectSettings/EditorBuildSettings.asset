@@ -12,9 +12,6 @@ EditorBuildSettings:
     path: Assets/Fernanda/UI/Main Menu.unity
     guid: 90543d301e174cc4d8c6792a730c1613
   - enabled: 0
-    path: Assets/Felipe/Scenes/Level1_Asset_Test.unity
-    guid: e220bc9c5c787d64f884ea36f4d61d8a
-  - enabled: 0
     path: Assets/Scenes/Level1_Asset_Test 1.unity
     guid: 9d26d27fd2e6d524fa3ef871e22b60fd
   - enabled: 1
