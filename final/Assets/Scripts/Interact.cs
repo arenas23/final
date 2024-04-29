@@ -36,5 +36,10 @@ public class InteractEvent
     public delegate void InteractHandler();
     public event InteractHandler HasInteracted;
 
+    public delegate void InteractView();
+    public event InteractHandler CanView;
+
     public void CallInteractEvet() => HasInteracted?.Invoke();
+
+    public void CallViewEvent() => CanView?.Invoke();
 }

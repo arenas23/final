@@ -13,9 +13,7 @@ public class Player : MonoBehaviour
 
     public void PlayerInteract()
     {
-        var layerMask0 = 1 << 0;
-        var layerMask3 = 1 << 3;
-        var finalMask = layerMask0 | layerMask3;
+        var finalMask = 1 << 8;
 
         RaycastHit hit;
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(.5f, .5f, 0));
