@@ -4,26 +4,38 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    
+ 
+    int finalMask = 1 << 8;
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E)) PlayerInteract();
+        VerifiedDistanceToItem();
     }
 
     public void PlayerInteract()
     {
-        var finalMask = 1 << 8;
 
+
+        // RaycastHit hit;
+        // Ray ray = Camera.main.ViewportPointToRay(new Vector3(.5f, .5f, 0));
+
+        // if(Physics.Raycast(ray, out hit, 15, finalMask)){
+        //     Interact interactScritp = hit.transform.GetComponent<Interact>();
+        //     if(interactScritp) interactScritp.CallInteract(this);
+        // }
+    }
+
+    public void VerifiedDistanceToItem(){
         RaycastHit hit;
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(.5f, .5f, 0));
 
-        if(Physics.Raycast(ray, out hit, 15, finalMask)){
+        if (Physics.Raycast(ray, out hit, 20, finalMask))
+        {
             Interact interactScritp = hit.transform.GetComponent<Interact>();
-            if(interactScritp) interactScritp.CallInteract(this);
+            if(interactScritp) interactScritp.CallView();
         }
 
-        
+        Debug.DrawRay(ray.origin, ray.direction * 20, Color.red);
     }
-    
+
 }

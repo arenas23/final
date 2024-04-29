@@ -28,6 +28,9 @@ public class Interact : MonoBehaviour
         player = interactedPlayer;
         interact.CallInteractEvet();
     }
+    public void CallView(){
+        interact.CallViewEvent();
+    }
 
 }
 

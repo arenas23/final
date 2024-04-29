@@ -4,15 +4,32 @@ using UnityEngine;
 
 public class Card : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public Interact openFromInteraction;
+    Canvas UICard;
+
+    void Start(){
+        UICard = GetComponentInChildren<Canvas>();
+        UICard.gameObject.SetActive(false);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
-        
+        if (openFromInteraction)
+        {
+            openFromInteraction.GetInteractEvent.CanView += ShowDetails;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (openFromInteraction)
+        {
+            openFromInteraction.GetInteractEvent.CanView -= ShowDetails; 
+        }
+    }
+
+    void ShowDetails()
+    {
+        UICard.gameObject.SetActive(true);
     }
 }
