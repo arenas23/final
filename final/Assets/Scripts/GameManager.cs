@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     public int defeatedEnemies = 0;
     public int activeGenerators = 0;
+    public int keyCard = 0;
 
     private void Awake()
     {

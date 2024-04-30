@@ -33,6 +33,10 @@ public class Interact : MonoBehaviour
     {
         interact.CallViewEvent();
     }
+    public void CallHideView()
+    {
+        interact.HideViewEvent();
+    }
 
 }
 
@@ -44,7 +48,12 @@ public class InteractEvent
     public delegate void InteractView();
     public event InteractHandler CanView;
 
+    public delegate void InteractHide();
+    public event InteractHandler HideView;
+
     public void CallInteractEvent() => HasInteracted?.Invoke();
 
     public void CallViewEvent() => CanView?.Invoke();
+
+    public void HideViewEvent() => HideView?.Invoke();
 }

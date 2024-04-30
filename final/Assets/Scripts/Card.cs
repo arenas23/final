@@ -16,7 +16,9 @@ public class Card : MonoBehaviour
     {
         if (openFromInteraction)
         {
+            openFromInteraction.GetInteractEvent.HasInteracted += Interact;
             openFromInteraction.GetInteractEvent.CanView += ShowDetails;
+            openFromInteraction.GetInteractEvent.HideView += HideDetails;
         }
     }
 
@@ -24,12 +26,24 @@ public class Card : MonoBehaviour
     {
         if (openFromInteraction)
         {
-            openFromInteraction.GetInteractEvent.CanView -= ShowDetails; 
+            openFromInteraction.GetInteractEvent.HasInteracted -= Interact;
+            openFromInteraction.GetInteractEvent.CanView -= ShowDetails;
+            openFromInteraction.GetInteractEvent.HideView -= HideDetails;
         }
     }
 
     void ShowDetails()
     {
         UICard.gameObject.SetActive(true);
+    }
+
+    void HideDetails()
+    {
+        UICard.gameObject.SetActive(false);
+    }
+
+    void Interact (){
+        GameManager.Instance.keyCard += 1;
+        Debug.Log("la cogi putos");
     }
 }

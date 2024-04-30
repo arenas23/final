@@ -27,7 +27,7 @@ public class Generator : MonoBehaviour
     {
         if (openFromInteraction)
         {
-            openFromInteraction.GetInteractEvent.CanView += ShowDetails;
+            openFromInteraction.GetInteractEvent.HasInteracted += Interact;
         }
     }
 
@@ -35,11 +35,11 @@ public class Generator : MonoBehaviour
     {
         if (openFromInteraction)
         {
-            openFromInteraction.GetInteractEvent.CanView -= ShowDetails;
+            openFromInteraction.GetInteractEvent.HasInteracted -= Interact;
         }
     }
 
-    void ShowDetails()
+    void Interact()
     {
         if (isArmed)
         {
