@@ -25,7 +25,7 @@ public class DoorController : MonoBehaviour
             // Debug.Log("entre");
             animator.Play("abrir");
             isOpen = true;
-            AudioManager.Instance.PlaySfx("door_open");
+            AudioManager.Instance.PlaySFX(1);
         }
 
 
