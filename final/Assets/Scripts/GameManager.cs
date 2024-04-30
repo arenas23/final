@@ -8,13 +8,14 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance { get; private set;}
+    public static GameManager Instance { get; private set; }
 
-    
+
     public Canvas winCanvas, loseCanvas;
 
 
     public int defeatedEnemies = 0;
+    public int activeGenerators = 0;
 
     private void Awake()
     {
@@ -33,7 +34,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+
 
 
     }
@@ -41,33 +42,38 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(defeatedEnemies == 2){
+        if (defeatedEnemies == 2)
+        {
             winCanvas.gameObject.SetActive(true);
             PauseGame();
-           
+
         }
     }
 
-   
 
-    public void PauseGame(){
+
+    public void PauseGame()
+    {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 0;
     }
 
-    public void ResumeGame(){
+    public void ResumeGame()
+    {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1;
     }
 
-    public void ResetGame(){
+    public void ResetGame()
+    {
         ResumeGame();
         defeatedEnemies = 0;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-    public void ExitGame(){
+    public void ExitGame()
+    {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 1;
@@ -75,7 +81,8 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Main Menu");
     }
 
-    public void LosePlayer(){
+    public void LosePlayer()
+    {
         loseCanvas.gameObject.SetActive(true);
         PauseGame();
     }

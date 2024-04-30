@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
- 
-    int finalMask = 1 << 8;
+
+    public LayerMask finalMask;
+
+
     // Update is called once per frame
     void Update()
     {
-        VerifiedDistanceToItem();
+        if (Input.GetKeyDown(KeyCode.E)) VerifiedDistanceToItem();
     }
 
     public void PlayerInteract()
@@ -25,14 +27,16 @@ public class Player : MonoBehaviour
         // }
     }
 
-    public void VerifiedDistanceToItem(){
+    public void VerifiedDistanceToItem()
+    {
         RaycastHit hit;
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(.5f, .5f, 0));
 
         if (Physics.Raycast(ray, out hit, 20, finalMask))
         {
-            Interact interactScritp = hit.transform.GetComponent<Interact>();
-            if(interactScritp) interactScritp.CallView();
+            Debug.Log(hit.transform.name);
+            Interact interactScript = hit.transform.GetComponent<Interact>();
+            if (interactScript) interactScript.CallView();
         }
 
         Debug.DrawRay(ray.origin, ray.direction * 20, Color.red);

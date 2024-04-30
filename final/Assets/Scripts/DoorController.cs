@@ -27,13 +27,10 @@ public class DoorController : MonoBehaviour
             isOpen = true;
             AudioManager.Instance.PlaySfx("door_open");
         }
-
-
     }
 
     void OnTriggerEnter(Collider other)
     {
-
         if (other.CompareTag("Player"))
         {
             open1.gameObject.SetActive(true);
@@ -53,11 +50,11 @@ public class DoorController : MonoBehaviour
             open2.gameObject.SetActive(false);
             unlock2.gameObject.SetActive(true);
             canOpen = false;
-            if(isOpen){
+            if (isOpen)
+            {
                 animator.Play("cerrar");
                 isOpen = false;
             }
-         
         }
     }
 }

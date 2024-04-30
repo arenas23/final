@@ -8,12 +8,12 @@ public class Interact : MonoBehaviour
     Player player;
 
     public InteractEvent GetInteractEvent
-    { 
+    {
         get
-        { 
+        {
             interact ??= new InteractEvent();
             return interact;
-        } 
+        }
     }
 
     public Player GetPlayer
@@ -24,11 +24,13 @@ public class Interact : MonoBehaviour
         }
     }
 
-    public void CallInteract(Player interactedPlayer){
+    public void CallInteract(Player interactedPlayer)
+    {
         player = interactedPlayer;
-        interact.CallInteractEvet();
+        interact.CallInteractEvent();
     }
-    public void CallView(){
+    public void CallView()
+    {
         interact.CallViewEvent();
     }
 
@@ -42,7 +44,7 @@ public class InteractEvent
     public delegate void InteractView();
     public event InteractHandler CanView;
 
-    public void CallInteractEvet() => HasInteracted?.Invoke();
+    public void CallInteractEvent() => HasInteracted?.Invoke();
 
     public void CallViewEvent() => CanView?.Invoke();
 }
