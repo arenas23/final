@@ -63,7 +63,7 @@ public class EnemyAtackPrueba : MonoBehaviour
             bulletToShoot.transform.localScale = new Vector3(0.02f, 0.02f, 0.02f);
             bulletToShoot.SetActive(true);
             
-            AudioManager.Instance.PlaySfx("enemy_shot");
+            AudioManager.Instance.PlaySFX(2);
         }
         else
         {
