@@ -3754,6 +3754,7 @@ MonoBehaviour:
   loseCanvas: {fileID: 481964427}
   defeatedEnemies: 0
   activeGenerators: 0
+  keyCard: 0
 --- !u!4 &235443315
 Transform:
   m_ObjectHideFlags: 0
@@ -9287,6 +9288,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1992758017, guid: 88ad7edb3927dd2458d13ed234086474, type: 3}
+      propertyPath: requireKey
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 68800861522389248, guid: 88ad7edb3927dd2458d13ed234086474,
         type: 3}
       propertyPath: m_Name
@@ -18344,6 +18349,11 @@ MonoBehaviour:
   finalMask:
     serializedVersion: 2
     m_Bits: 257
+  interactionPoint: {fileID: 0}
+  interactableMask:
+    serializedVersion: 2
+    m_Bits: 0
+  numCollidersFound: 0
 --- !u!4 &1260179676 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7510755300263004730, guid: 9ccfa500ce4b33d4dbfcac9420c24e77,
@@ -41969,7 +41979,7 @@ PrefabInstance:
     - target: {fileID: 1097822293209607469, guid: a5b0247a9f11c9d4c843cdc9a46e63f2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 23
+      value: 24
       objectReference: {fileID: 0}
     - target: {fileID: 1097822293209607469, guid: a5b0247a9f11c9d4c843cdc9a46e63f2,
         type: 3}
