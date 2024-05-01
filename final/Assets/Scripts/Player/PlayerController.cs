@@ -26,13 +26,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] bool isOil;
     [SerializeField] bool isSand;
 
-
-    [Header("Audio")]
-    [SerializeField] bool functionAudioWalk = false;
-    [SerializeField] bool functionAudioRun = false;
-    [SerializeField] float rangeSpeed;
-
-
     public float Health
     {
         get { return health; }
@@ -63,10 +56,7 @@ public class PlayerController : MonoBehaviour
         Vector3 movePlayer = transform.TransformDirection(moveDirection) * speed;
 
         characterController.Move(movePlayer * Time.deltaTime);
-
-        //Take speed to audio
-        rangeSpeed = (Mathf.Abs(movePlayer.x) + Mathf.Abs(movePlayer.z));
-
+    
         // Animation
         animator.SetFloat("Speed", Mathf.Abs(movePlayer.x) + Mathf.Abs(movePlayer.z));
         animator.SetBool("Grounded", isGrounded);
@@ -156,6 +146,7 @@ public class PlayerController : MonoBehaviour
    
         if(isSand)
         {
+            Debug.Log("Sand");
             AudioManager.Instance.PlaySFX(6);
         }
         else if (isOil)

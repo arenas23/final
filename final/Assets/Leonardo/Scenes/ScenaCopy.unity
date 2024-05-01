@@ -3254,7 +3254,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c62a294fe300d074a98120315d8e02e6, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 274bfcab1fe64bc419285013d5b97f61, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -7425,9 +7425,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 745bbb356c780484980a3a4fb4f05acc, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ccbd28d009745db40a5bd21e1068cd91, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.8
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -26125,7 +26125,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2ae04be2b6380ee4c9c9cebc7b4f659e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -26889,9 +26889,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4d9fbdd463c85ff42b3329cf7c648f55, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 79abeb3fec9219c4dbe2a8f252cae795, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.8
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -27125,7 +27125,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: a6598ab2e5f6d79478d7d88ed4a45299, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b32aec21bde6bdd4b8a4d93903a486c8, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
@@ -27549,9 +27549,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ea64b8412b5ffad458fd39acf45da2ea, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 43ec736db8012b74181c0ccc001325f5, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.8
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -30176,9 +30176,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c6be6c743d6b94c428c490b8031d4f54, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 2f1bc09f07f40974896516a2893e374d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.8
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -31804,12 +31804,7 @@ PrefabInstance:
     - target: {fileID: 6475071648503347031, guid: a5b0247a9f11c9d4c843cdc9a46e63f2,
         type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'mixamorig:RightArm'\n\tTransform 'mixamorig:LeftArm'\n\tTransform
-        'mixamorig:RightHand'\n\tTransform 'mixamorig:LeftForeArm'\n\tTransform 'mixamorig:RightForeArm'\n\tTransform
-        'mixamorig:LeftHand'\n\tTransform 'mixamorig:RightArm'\n\tTransform 'mixamorig:LeftArm'\n\tTransform
-        'mixamorig:RightHand'\n\tTransform 'mixamorig:LeftForeArm'\n\tand more ..."
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8954597173604900289, guid: a5b0247a9f11c9d4c843cdc9a46e63f2,
         type: 3}
