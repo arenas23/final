@@ -12,10 +12,11 @@ public class Player : MonoBehaviour
     private readonly float interactionPointRadius = 7f;
     [SerializeField] private LayerMask interactableMask; 
 
-    private readonly Collider[] colliders = new Collider[3];
+    private Collider[] colliders = new Collider[3];
     [SerializeField] private int numCollidersFound;
     Interact interactable;
     Interact lastInteractable;
+    int indexCollider;
 
 
     void Update()
@@ -44,7 +45,8 @@ public class Player : MonoBehaviour
         numCollidersFound = Physics.OverlapSphereNonAlloc(interactionPoint.position, interactionPointRadius, colliders,interactableMask);
         if (numCollidersFound > 0)
         {
-            interactable = colliders[VerifyDistanceShorter()].GetComponent<Interact>();
+            indexCollider = VerifyDistanceShorter();
+            interactable = colliders[indexCollider].GetComponent<Interact>();
             interactable.CallView();
             if(interactable != lastInteractable){
                 lastInteractable?.CallHideView();
@@ -60,7 +62,7 @@ public class Player : MonoBehaviour
         float distance = 0;
         int index = 0;
         float minusDistance = float.PositiveInfinity;
-        for (int i =0; i < colliders.Length; i++)
+        for (int i =0; i < numCollidersFound; i++)
         {
             distance = Vector3.Distance(interactionPoint.position, colliders[i].gameObject.transform.position);
             if (distance < minusDistance)

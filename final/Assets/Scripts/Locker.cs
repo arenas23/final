@@ -43,6 +43,7 @@ public class Locker : MonoBehaviour
 
     void Interact()
     {
+        Debug.Log("entre");
         lockerAnimator.Play("OpenLocker");
         HideDetails();
         gameObject.layer = 1;
