@@ -16075,6 +16075,7 @@ MonoBehaviour:
   mainCamera: {fileID: 447283972}
   objectPoolingBalas: {fileID: 194704161}
   canvasTemporizador: {fileID: 1199073826}
+  player: {fileID: 0}
 --- !u!4 &1046975825
 Transform:
   m_ObjectHideFlags: 0
@@ -39902,7 +39903,7 @@ PrefabInstance:
     - target: {fileID: 8639294360149787690, guid: 9b21457c3efdafa469f2ff2fed27211f,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 199.57
+      value: 199.17
       objectReference: {fileID: 0}
     - target: {fileID: 8639294360149787690, guid: 9b21457c3efdafa469f2ff2fed27211f,
         type: 3}
