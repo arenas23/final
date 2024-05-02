@@ -25674,6 +25674,8 @@ MonoBehaviour:
   winCanvas: {fileID: 398433826}
   loseCanvas: {fileID: 398433826}
   defeatedEnemies: 0
+  activeGenerators: 0
+  keyCard: 0
 --- !u!4 &1395122130
 Transform:
   m_ObjectHideFlags: 0
