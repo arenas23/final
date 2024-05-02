@@ -77,12 +77,20 @@ MonoBehaviour:
   health: 100
   jumpForce: 3
   gravity: -30
-  groundCheck: {fileID: 0}
+  groundCheck: {fileID: 8954597173975270227}
   groundMask:
     serializedVersion: 2
     m_Bits: 8
-  sphereRadius: 0.3
+  oilMask:
+    serializedVersion: 2
+    m_Bits: 512
+  sandMask:
+    serializedVersion: 2
+    m_Bits: 256
+  sphereRadius: 1
   isGrounded: 0
+  isOil: 0
+  isSand: 0
 --- !u!143 &321988835203561354
 CharacterController:
   m_ObjectHideFlags: 0
@@ -2627,7 +2635,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2a16a5256c0afe46a74c499a26bea6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 400
+  mouseSensitivity: 200
   playerBody: {fileID: 0}
   player: {fileID: 0}
   xRotation: 0
@@ -2698,7 +2706,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8954597173975270226}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.02, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
