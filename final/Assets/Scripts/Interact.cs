@@ -18,10 +18,7 @@ public class Interact : MonoBehaviour
 
     public Player GetPlayer
     {
-        get
-        {
-            return player;
-        }
+        get { return player; }
     }
 
     public void CallInteract(Player interactedPlayer)
@@ -29,10 +26,12 @@ public class Interact : MonoBehaviour
         player = interactedPlayer;
         interact.CallInteractEvent();
     }
+
     public void CallView()
     {
         interact.CallViewEvent();
     }
+
     public void CallHideView()
     {
         interact.HideViewEvent();
