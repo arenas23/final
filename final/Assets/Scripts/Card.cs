@@ -45,6 +45,5 @@ public class Card : MonoBehaviour
     void Interact (){
         GameManager.Instance.keyCard += 1;
         Objjectives.Instance.ChangeObjective(Objjectives.Objectives.SEARCH_KEYCARD_COMPLETED);
-        Debug.Log("la cogi putos");
     }
 }
