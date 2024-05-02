@@ -7427,7 +7427,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ccbd28d009745db40a5bd21e1068cd91, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -26893,7 +26893,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 79abeb3fec9219c4dbe2a8f252cae795, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -27553,7 +27553,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 43ec736db8012b74181c0ccc001325f5, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -30180,7 +30180,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2f1bc09f07f40974896516a2893e374d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -31713,36 +31713,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 321988835203561353, guid: a5b0247a9f11c9d4c843cdc9a46e63f2,
-        type: 3}
-      propertyPath: groundCheck
-      value: 
-      objectReference: {fileID: 2133613807}
-    - target: {fileID: 321988835203561353, guid: a5b0247a9f11c9d4c843cdc9a46e63f2,
-        type: 3}
-      propertyPath: sphereRadius
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 321988835203561353, guid: a5b0247a9f11c9d4c843cdc9a46e63f2,
-        type: 3}
-      propertyPath: oilMask.m_Bits
-      value: 512
-      objectReference: {fileID: 0}
-    - target: {fileID: 321988835203561353, guid: a5b0247a9f11c9d4c843cdc9a46e63f2,
-        type: 3}
-      propertyPath: sandMask.m_Bits
-      value: 256
-      objectReference: {fileID: 0}
-    - target: {fileID: 321988835203561353, guid: a5b0247a9f11c9d4c843cdc9a46e63f2,
-        type: 3}
-      propertyPath: waterMask.m_Bits
-      value: 2048
-      objectReference: {fileID: 0}
-    - target: {fileID: 321988835203561353, guid: a5b0247a9f11c9d4c843cdc9a46e63f2,
-        type: 3}
-      propertyPath: groundMask.m_Bits
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 321988835203561367, guid: a5b0247a9f11c9d4c843cdc9a46e63f2,
         type: 3}
       propertyPath: m_Name
@@ -31802,21 +31772,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6475071648503347031, guid: a5b0247a9f11c9d4c843cdc9a46e63f2,
-        type: 3}
-      propertyPath: m_WarningMessage
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8954597173604900289, guid: a5b0247a9f11c9d4c843cdc9a46e63f2,
-        type: 3}
-      propertyPath: mouseSensitivity
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 8954597173975270227, guid: a5b0247a9f11c9d4c843cdc9a46e63f2,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.02
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5b0247a9f11c9d4c843cdc9a46e63f2, type: 3}
@@ -33144,12 +33099,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ccfa500ce4b33d4dbfcac9420c24e77, type: 3}
---- !u!4 &2133613807 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8954597173975270227, guid: a5b0247a9f11c9d4c843cdc9a46e63f2,
-    type: 3}
-  m_PrefabInstance: {fileID: 2007340604}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2136063481 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7510755300263004730, guid: 9ccfa500ce4b33d4dbfcac9420c24e77,
