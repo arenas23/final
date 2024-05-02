@@ -39,10 +39,10 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 20.550340136054423
+    m_Start: 0
     m_ClipIn: 0
     m_Asset: {fileID: 6656522017812036559}
-    m_Duration: 5.934761904761905
+    m_Duration: 26.48510204081632
     m_TimeScale: 1
     m_ParentTrack: {fileID: -7148666649814528903}
     m_EaseInDuration: 0
@@ -178,7 +178,7 @@ MonoBehaviour:
   m_Children: []
   m_Clips:
   - m_Version: 1
-    m_Start: 0
+    m_Start: 0.65
     m_ClipIn: 0
     m_Asset: {fileID: 3723993818817980834}
     m_Duration: 2.4868027210884356
@@ -229,7 +229,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Intercom-01
   - m_Version: 1
-    m_Start: 2.4868027210884356
+    m_Start: 3.816666666666667
     m_ClipIn: 0
     m_Asset: {fileID: -3622645784820326671}
     m_Duration: 1.8002494331065764
@@ -262,7 +262,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Intercom-02
   - m_Version: 1
-    m_Start: 4.2870521541950115
+    m_Start: 6.1
     m_ClipIn: 0
     m_Asset: {fileID: -6774859680447893769}
     m_Duration: 1.6477097505668938
@@ -331,40 +331,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Intercom-03
   - m_Version: 1
-    m_Start: 14.905510204081633
-    m_ClipIn: 0
-    m_Asset: {fileID: -8681482885229103346}
-    m_Duration: 5.644829931972789
-    m_TimeScale: 1
-    m_ParentTrack: {fileID: -4913505195311086587}
-    m_EaseInDuration: 0
-    m_EaseOutDuration: 0
-    m_BlendInDuration: -1
-    m_BlendOutDuration: -1
-    m_MixInCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_MixOutCurve:
-      serializedVersion: 2
-      m_Curve: []
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    m_BlendInCurveMode: 0
-    m_BlendOutCurveMode: 0
-    m_ExposedParameterNames: []
-    m_AnimationCurves: {fileID: 0}
-    m_Recordable: 0
-    m_PostExtrapolationMode: 0
-    m_PreExtrapolationMode: 0
-    m_PostExtrapolationTime: 0
-    m_PreExtrapolationTime: 0
-    m_DisplayName: Intercom-05
-  - m_Version: 1
-    m_Start: 5.934761904761905
+    m_Start: 8.283333333333333
     m_ClipIn: 0
     m_Asset: {fileID: 6578788981637150695}
     m_Duration: 3.020748299319728
@@ -433,7 +400,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Intercom-04
   - m_Version: 1
-    m_Start: 8.955510204081634
+    m_Start: 12.166666666666666
     m_ClipIn: 0
     m_Asset: {fileID: 3502613647368991710}
     m_Duration: 2.547800453514739
@@ -466,7 +433,7 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Intercom-07
   - m_Version: 1
-    m_Start: 9.039297052154197
+    m_Start: 12.25045351473923
     m_ClipIn: 0
     m_Asset: {fileID: -4987992871131065331}
     m_Duration: 2.464013605442177
@@ -499,7 +466,40 @@ MonoBehaviour:
     m_PreExtrapolationTime: 0
     m_DisplayName: Intercom-08
   - m_Version: 1
-    m_Start: 11.503310657596373
+    m_Start: 20.483333333333334
+    m_ClipIn: 0
+    m_Asset: {fileID: -8681482885229103346}
+    m_Duration: 5.644829931972789
+    m_TimeScale: 1
+    m_ParentTrack: {fileID: -4913505195311086587}
+    m_EaseInDuration: 0
+    m_EaseOutDuration: 0
+    m_BlendInDuration: -1
+    m_BlendOutDuration: -1
+    m_MixInCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_MixOutCurve:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    m_BlendInCurveMode: 0
+    m_BlendOutCurveMode: 0
+    m_ExposedParameterNames: []
+    m_AnimationCurves: {fileID: 0}
+    m_Recordable: 0
+    m_PostExtrapolationMode: 0
+    m_PreExtrapolationMode: 0
+    m_PostExtrapolationTime: 0
+    m_PreExtrapolationTime: 0
+    m_DisplayName: Intercom-05
+  - m_Version: 1
+    m_Start: 16.316666666666666
     m_ClipIn: 0
     m_Asset: {fileID: -1844001846305117006}
     m_Duration: 3.4021995464852606
@@ -2528,11 +2528,11 @@ MonoBehaviour:
   - {fileID: -4913505195311086587}
   - {fileID: 6306832449245338245}
   - {fileID: 7601611079025588325}
-  m_FixedDuration: 0
+  m_FixedDuration: 26.583333333333332
   m_EditorSettings:
     m_Framerate: 60
     m_ScenePreview: 1
-  m_DurationMode: 0
+  m_DurationMode: 1
   m_MarkerTrack: {fileID: 0}
 --- !u!114 &3502613647368991710
 MonoBehaviour:
