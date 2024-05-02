@@ -13,13 +13,13 @@ public class Objjectives : MonoBehaviour
 
     public enum Objectives
     {
-        GO_CONTROL_ROOM = 1,
-        GO_CONTROL_ROOM_COMPLETED = 2,
-        SEARCH_KEYCARD = 3,
-        SEARCH_KEYCARD_COMPLETED = 4,
-        TURN_ON_GENERATORS = 5,
-        TURN_ON_GENERATORS_COMPLETED = 6,
-        ESCAPE = 7
+        GO_CONTROL_ROOM = 0,
+        GO_CONTROL_ROOM_COMPLETED = 1,
+        SEARCH_KEYCARD = 2,
+        SEARCH_KEYCARD_COMPLETED = 3,
+        TURN_ON_GENERATORS = 4,
+        TURN_ON_GENERATORS_COMPLETED = 5,
+        ESCAPE = 6
     }
 
  
@@ -59,6 +59,8 @@ public class Objjectives : MonoBehaviour
     {
         yield return new WaitForSeconds(6);
         objectives[0].gameObject.SetActive(true);
+        yield return new WaitForSeconds(2);
+        objectives[0].gameObject.SetActive(false);
     }
 
     IEnumerator ShowCurrentObjective()
