@@ -42,8 +42,12 @@ public class Weapon : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Mouse0) && canShoot && !bulletFired)
         {
-            ShootAmo();
-            bulletFired = true;
+            if (!GameManager.Instance.IsPaused)
+            {
+                ShootAmo();
+                bulletFired = true;
+            }
+             
         }
 
         if (heat > 0)

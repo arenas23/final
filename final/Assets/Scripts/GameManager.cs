@@ -18,6 +18,19 @@ public class GameManager : MonoBehaviour
     public int activeGenerators = 0;
     public int keyCard = 0;
 
+    [SerializeField] private bool isPaused = false;
+    [SerializeField] private GameObject pauseCanvas;
+    [SerializeField] private GameObject uiPlayer;
+    public Slider sliderMusic, sliderSFX, sliderMaster;
+    
+    public Slider sensitivitySlider;
+    public CameraController cameraController;
+
+    public bool IsPaused
+    {
+        get { return isPaused; }
+    }
+
     private void Awake()
     {
         if (Instance == null)
@@ -31,26 +44,50 @@ public class GameManager : MonoBehaviour
         }
 
     }
+    void Start()
+    {
+        sensitivitySlider.value = cameraController.mouseSensitivity;
+        sensitivitySlider.onValueChanged.AddListener(cameraController.SetMouseSensitivity);
+
+        pauseCanvas = GameObject.Find("Pause Variant");
+        uiPlayer = GameObject.Find("UIPlayer");
+
+        if (pauseCanvas != null)
+        {
+            pauseCanvas.gameObject.SetActive(false);
+        }
+        else
+        {
+            Debug.LogError("No se encontr� 'Pause Variant'.");
+        }
+    }
 
     // Update is called once per frame
     void Update()
     {
+        PausePanel();
     }
-
-
 
     public void PauseGame()
     {
+        uiPlayer.gameObject.SetActive(false);
+        pauseCanvas.gameObject.SetActive(true);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 0;
+        isPaused = true;
+        
     }
-
+   
     public void ResumeGame()
     {
+        uiPlayer.gameObject.SetActive(true);
+        pauseCanvas.gameObject.SetActive(false);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1;
+        isPaused = false;
+        
     }
 
     public void ResetGame()
@@ -73,4 +110,18 @@ public class GameManager : MonoBehaviour
         loseCanvas.gameObject.SetActive(true);
         PauseGame();
     }
+
+    void PausePanel()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape) && !isPaused)
+        {      
+            PauseGame();
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape) && isPaused)
+        {       
+            ResumeGame();
+        }
+    }
+
+
 }
