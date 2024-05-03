@@ -35,12 +35,6 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (defeatedEnemies == 2)
-        {
-            winCanvas.gameObject.SetActive(true);
-            PauseGame();
-
-        }
     }
 
 
