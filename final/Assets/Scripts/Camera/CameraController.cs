@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField]public float mouseSensitivity = 80f;
+    public float mouseSensitivity = 80f;
     [SerializeField] Transform playerBody;
     [SerializeField] GameObject player;
     [SerializeField] float xRotation = 0;
