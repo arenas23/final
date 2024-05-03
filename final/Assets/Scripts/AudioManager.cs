@@ -10,7 +10,7 @@ public class AudioManager : MonoBehaviour
     public AudioSource[] music;
     public AudioSource[] SFX;
 
-    //public AudioMixerGroup musicMixer, sfxMixer;
+    public AudioMixerGroup masterMixer, musicMixer, sfxMixer;
 
     private void Awake()
     {
@@ -47,16 +47,19 @@ public class AudioManager : MonoBehaviour
 
     }
 
-    //public void SetMusicLevel()
-    //{
-    //    musicMixer.audioMixer.SetFloat("MusicVol", UIManager.instance.musicVolSlider.value);
-    //}
+    public void SetMusicLevel()
+    {
+        musicMixer.audioMixer.SetFloat("MusicVol", GameManager.Instance.sliderMusic.value);
+    }
 
-    //public void SetSFXLevel()
-    //{
-    //    sfxMixer.audioMixer.SetFloat("SFXVol", UIManager.instance.sfxVolSlider.value);
-    //}
-
+    public void SetSFXLevel()
+    {
+        sfxMixer.audioMixer.SetFloat("SFXVol", GameManager.Instance.sliderSFX.value);
+    }
+    public void SetMasterevel()
+    {
+        sfxMixer.audioMixer.SetFloat("MasterVol", GameManager.Instance.sliderMaster.value);
+    }
 }
 
 
