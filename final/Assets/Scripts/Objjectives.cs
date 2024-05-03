@@ -57,7 +57,7 @@ public class Objjectives : MonoBehaviour
 
     IEnumerator showFirstObjective()
     {
-        yield return new WaitForSeconds(6);
+        yield return new WaitForSeconds(27);
         objectives[0].gameObject.SetActive(true);
         yield return new WaitForSeconds(6);
         objectives[0].gameObject.SetActive(false);

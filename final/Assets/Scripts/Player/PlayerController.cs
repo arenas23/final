@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     [Header("Movement")]
     float speed = 20f;
     float walkSpeed = 20f;
-    float runSpeed = 30f;
+    float runSpeed = 50f;
     [SerializeField] float jumpForce = 3;
     [SerializeField] float gravity = -9.8f;
     private Vector3 velocity;
@@ -52,7 +52,7 @@ public class PlayerController : MonoBehaviour
         float xInput = Input.GetAxis("Horizontal");
         float yInput = Input.GetAxis("Vertical");
 
-        Vector3 moveDirection = new Vector3(xInput, 0.0f, yInput).normalized; // Normalizamos el vector de dirección
+        Vector3 moveDirection = new Vector3(xInput, 0.0f, yInput).normalized; // Normalizamos el vector de direcciï¿½n
         Vector3 movePlayer = transform.TransformDirection(moveDirection) * speed;
 
         characterController.Move(movePlayer * Time.deltaTime);
@@ -118,7 +118,7 @@ public class PlayerController : MonoBehaviour
     private void Die()
     {
         GameManager.Instance.LosePlayer();
-        Destroy(gameObject);
+
     }
 
     public int GetSurfaceType()

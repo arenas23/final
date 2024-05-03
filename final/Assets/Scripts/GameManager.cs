@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     public int keyCard = 0;
 
     [SerializeField] private bool isPaused = false;
-    [SerializeField] private GameObject pauseCanvas;
+    public Canvas pauseCanvas;
     [SerializeField] private GameObject uiPlayer;
     public Slider sliderMusic, sliderSFX, sliderMaster;
     
@@ -50,23 +50,24 @@ public class GameManager : MonoBehaviour
         sensitivitySlider.value = cameraController.mouseSensitivity;
         sensitivitySlider.onValueChanged.AddListener(cameraController.SetMouseSensitivity);
 
-        pauseCanvas = GameObject.Find("Pause Variant");
+  
         uiPlayer = GameObject.Find("UIPlayer");
 
         if (pauseCanvas != null)
         {
             pauseCanvas.gameObject.SetActive(false);
         }
-        else
-        {
-            Debug.LogError("No se encontr� 'Pause Variant'.");
-        }
+
     }
 
     // Update is called once per frame
     void Update()
     {
         PausePanel();
+
+        if(uiPlayer == null){
+            uiPlayer = GameObject.Find("UIPlayer");
+        }
     }
 
     public void PauseGame()

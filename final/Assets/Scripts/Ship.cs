@@ -49,6 +49,7 @@ public class Ship : MonoBehaviour
     {
         if (VerifyEscapeObjective())
         {
+            UIShip.gameObject.SetActive(false);
             GameManager.Instance.WinPlayer();
 
         }
