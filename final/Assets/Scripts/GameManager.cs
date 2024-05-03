@@ -109,7 +109,17 @@ public class GameManager : MonoBehaviour
     public void LosePlayer()
     {
         loseCanvas.gameObject.SetActive(true);
-        PauseGame();
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        Time.timeScale = 0;
+    }
+
+    public void WinPlayer()
+    {
+        winCanvas.gameObject.SetActive(true);
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        Time.timeScale = 0;
     }
 
     void PausePanel()
