@@ -47,6 +47,12 @@ public class Generator : MonoBehaviour
             on.SetActive(true);
             isOn = false;
             GameManager.Instance.activeGenerators += 1;
+
+        }
+
+        if(GameManager.Instance.activeGenerators == 2)
+        {
+            Objjectives.Instance.ChangeObjective(Objjectives.Objectives.TURN_ON_GENERATORS_COMPLETED);
         }
     }
 }

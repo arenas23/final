@@ -59,7 +59,7 @@ public class Objjectives : MonoBehaviour
     {
         yield return new WaitForSeconds(6);
         objectives[0].gameObject.SetActive(true);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(6);
         objectives[0].gameObject.SetActive(false);
     }
 
