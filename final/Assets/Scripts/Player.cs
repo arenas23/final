@@ -9,27 +9,23 @@ public class Player : MonoBehaviour
     public LayerMask finalMask;
 
     [SerializeField] private Transform interactionPoint;
-    private float interactionPointRadius = 7f;
+    private readonly float interactionPointRadius = 7f;
     [SerializeField] private LayerMask interactableMask; 
 
-    [SerializeField]private readonly Collider[] colliders = new Collider[3];
+    private Collider[] colliders = new Collider[3];
     [SerializeField] private int numCollidersFound;
     Interact interactable;
     Interact lastInteractable;
+    int indexCollider;
 
 
-    // Update is called once per frame
     void Update()
     {
-        VerifiedDistanceToItem();
-
-   
+        VerifyDistanceToItem();
 
         if (interactable) {
             if (Input.GetKeyDown(KeyCode.E)) PlayerInteract();
-            interactable.CallView();
-        }else {
-            lastInteractable?.CallHideView();
+         
         }
     }
 
@@ -41,37 +37,55 @@ public class Player : MonoBehaviour
 
     public void PlayerInteract()
     {
-        // RaycastHit hit;
-        // Ray ray = Camera.main.ViewportPointToRay(new Vector3(.5f, .5f, 0));
-
-        // if(Physics.Raycast(ray, out hit, 15, finalMask)){
         interactable.CallInteract(this);
-        // }
     }
 
-    public void VerifiedDistanceToItem()
+    public void VerifyDistanceToItem()
     {
         numCollidersFound = Physics.OverlapSphereNonAlloc(interactionPoint.position, interactionPointRadius, colliders,interactableMask);
         if (numCollidersFound > 0)
         {
-            interactable = colliders[0].GetComponent<Interact>();
-
-        }else{
-
+            indexCollider = VerifyDistanceShorter();
+            interactable = colliders[indexCollider].GetComponent<Interact>();
+            interactable.CallView();
+            if(interactable != lastInteractable){
+                lastInteractable?.CallHideView();
+            }
             lastInteractable = interactable;
-            interactable = null;
+        }else {
+            lastInteractable?.CallHideView();
         }
-        // RaycastHit hit;
-        // Ray ray = Camera.main.ViewportPointToRay(new Vector3(.5f, .5f, 0));
+    }
 
-        // if (Physics.Raycast(ray, out hit, 20, finalMask))
-        // {
-        //     Debug.Log(hit.transform.name);
-        //     Interact interactScript = hit.transform.GetComponent<Interact>();
-        //     
-        // }
+    public int VerifyDistanceShorter()
+    {
+        float distance = 0;
+        int index = 0;
+        float minusDistance = float.PositiveInfinity;
+        for (int i =0; i < numCollidersFound; i++)
+        {
+            distance = Vector3.Distance(interactionPoint.position, colliders[i].gameObject.transform.position);
+            if (distance < minusDistance)
+            {
+                minusDistance = distance;
+                index = i;
+            } 
+        }
+        return index;
 
-        // 
     }
 
 }
+
+
+// RaycastHit hit;
+// Ray ray = Camera.main.ViewportPointToRay(new Vector3(.5f, .5f, 0));
+
+// if (Physics.Raycast(ray, out hit, 20, finalMask))
+// {
+//     Debug.Log(hit.transform.name);
+//     Interact interactScript = hit.transform.GetComponent<Interact>();
+//     
+// }
+
+// 
