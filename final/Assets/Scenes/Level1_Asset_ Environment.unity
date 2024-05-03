@@ -40711,7 +40711,7 @@ PrefabInstance:
         type: 3}
       propertyPath: objectPoolingBalas
       value: 
-      objectReference: {fileID: 2057476977}
+      objectReference: {fileID: 194704161}
     - target: {fileID: 1960044040051105457, guid: 196dfd2c7f4fa9749b5141a9bd496093,
         type: 3}
       propertyPath: m_Name
@@ -51988,12 +51988,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.020000001, y: 0.0008000001, z: 0.020000001}
   m_Center: {x: 0, y: -0.00040000005, z: 0.000000059604645}
---- !u!1 &2057476977 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2034337850241458609, guid: 519964fe8b6549846bc9486a13cf5e0f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1702195042}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2057724796 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8015900873887642185, guid: 3066b1c900c171f49a0eba36a5939c6e,
