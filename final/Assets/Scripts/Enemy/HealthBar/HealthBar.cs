@@ -34,7 +34,7 @@ public class HealthBar : MonoBehaviour
     {
         if (progress < 0 || progress > 1)
         {
-            Debug.LogWarning($"{progress} progress must be between 0 and 1");
+            //Debug.LogWarning($"{progress} progress must be between 0 and 1");
             progress = Mathf.Clamp01(progress);
         }
         if (progress != ProgressImage.fillAmount)
@@ -57,7 +57,7 @@ public class HealthBar : MonoBehaviour
             while (time < 1f)
             {
                 ProgressImage.fillAmount = Mathf.Lerp(initialProgress, progress, time);
-                Debug.Log("Fill amount: " + progress);
+                //Debug.Log("Fill amount: " + progress);
                 time += Time.deltaTime * speed;
 
                 ProgressImage.color = gradient.Evaluate(ProgressImage.fillAmount);

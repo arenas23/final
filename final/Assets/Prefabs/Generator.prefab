@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 1045122118674280492}
   - component: {fileID: 1045122118674280495}
   m_Layer: 8
-  m_Name: Disarmed
+  m_Name: On
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -302,7 +302,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9832eef60068afd46b1df832845bc77e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 331a44c4a19c55244b7a626aa9eca667, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -324,7 +324,7 @@ GameObject:
   - component: {fileID: 1045122120025020113}
   - component: {fileID: 1045122120025020112}
   m_Layer: 8
-  m_Name: Armed
+  m_Name: Off
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -378,7 +378,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8f0fe4f2270a2e54bb1926518a09eae2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1468a802b7521124297bb5e70140e6f7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

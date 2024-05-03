@@ -5,22 +5,22 @@ using UnityEngine;
 public class Generator : MonoBehaviour
 {
     public Interact openFromInteraction;
-    GameObject armed;
-    GameObject disarmed;
+    GameObject off;
+    GameObject on;
     Canvas canvas;
 
-    bool isArmed = true;
+    bool isOn = true;
 
     private void Awake()
     {
         canvas = GetComponentInChildren<Canvas>();
-        armed = canvas.transform.GetChild(0).gameObject;
-        disarmed = canvas.transform.GetChild(1).gameObject;
+        off = canvas.transform.GetChild(0).gameObject;
+        on = canvas.transform.GetChild(1).gameObject;
     }
 
     void Start()
     {
-        disarmed.SetActive(false);
+        on.SetActive(false);
     }
 
     private void OnEnable()
@@ -41,11 +41,11 @@ public class Generator : MonoBehaviour
 
     void Interact()
     {
-        if (isArmed)
+        if (isOn)
         {
-            armed.SetActive(false);
-            disarmed.SetActive(true);
-            isArmed = false;
+            off.SetActive(false);
+            on.SetActive(true);
+            isOn = false;
             GameManager.Instance.activeGenerators += 1;
         }
     }
