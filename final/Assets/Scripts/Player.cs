@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     {
         VerifyDistanceToItem();
 
-        if (interactable) {
+        if (interactable && numCollidersFound > 0) {
             if (Input.GetKeyDown(KeyCode.E)) PlayerInteract();
          
         }

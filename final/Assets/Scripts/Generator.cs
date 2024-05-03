@@ -41,6 +41,7 @@ public class Generator : MonoBehaviour
 
     void Interact()
     {
+
         if (isOn)
         {
             off.SetActive(false);
@@ -52,6 +53,7 @@ public class Generator : MonoBehaviour
 
         if(GameManager.Instance.activeGenerators == 2)
         {
+           
             Objjectives.Instance.ChangeObjective(Objjectives.Objectives.TURN_ON_GENERATORS_COMPLETED);
         }
     }
