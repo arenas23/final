@@ -22,6 +22,7 @@ public class HealPackage : MonoBehaviour
         Debug.Log("OnTriggerEnter: " + other.gameObject.tag);
         if (other.gameObject.tag == "Player")
         {
+            AudioManager.Instance.PlaySFX(10);
             PlayerController player = other.GetComponent<PlayerController>();
             player.Heal(heal);
             Destroy(gameObject);

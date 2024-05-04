@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 9186836007921844437}
   - component: {fileID: 5921172452545727328}
   - component: {fileID: 852709828663677169}
+  - component: {fileID: 2043653064973936295}
   m_Layer: 0
   m_Name: Object_2
   m_TagString: Untagged
@@ -83,6 +84,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2043653064973936295
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060938407163717633}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.4128305, y: 1.6336008, z: 1.1199516}
+  m_Center: {x: 0.054993015, y: -0.81996447, z: -0.016788503}
 --- !u!1 &3549626749460050933
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,6 +189,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4188028768344173790}
+  - component: {fileID: 1752493528258456181}
   m_Layer: 0
   m_Name: Computer_02 (6)
   m_TagString: Untagged
@@ -198,6 +213,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -180, y: 0, z: 0}
+--- !u!65 &1752493528258456181
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3554762141161829988}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3830719, y: 1.6540276, z: 1.0578188}
+  m_Center: {x: 0.061436463, y: -0.81850207, z: -0.02890923}
 --- !u!1 &4330859197428105164
 GameObject:
   m_ObjectHideFlags: 0

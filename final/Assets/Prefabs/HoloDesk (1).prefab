@@ -356,6 +356,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8015900873887642185}
+  - component: {fileID: 4264330598581486662}
   m_Layer: 0
   m_Name: HoloDesk (1)
   m_TagString: Untagged
@@ -379,3 +380,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -180, y: 90, z: 0}
+--- !u!65 &4264330598581486662
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7238942610836990195}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.27273574, y: 0.13654302, z: 0.08416895}
+  m_Center: {x: 0.00000053075644, y: -0.06809671, z: 0.027151829}

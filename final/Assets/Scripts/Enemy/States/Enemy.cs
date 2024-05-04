@@ -66,7 +66,13 @@ public class Enemy : MonoBehaviour
     {
         // Get agent speed and set it into the animator
         animatorSpeed = agent.velocity.magnitude;
+        if (animatorSpeed <= 0.01f)
+        {
+            animatorSpeed = 0f;
+        }
+
         animator.SetFloat("speed", animatorSpeed);
+
         //audioSource.PlayOneShot(audioClip); // Audio
 
         currentState = stateMachine.activeState.ToString();
