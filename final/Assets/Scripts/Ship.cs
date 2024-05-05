@@ -7,6 +7,7 @@ public class Ship : MonoBehaviour
     [SerializeField] Interact openFromInteraction;
 
     private Canvas UIShip;
+    Objetivos objetivos;
 
     private void OnEnable()
     {
@@ -33,12 +34,12 @@ public class Ship : MonoBehaviour
 
         UIShip = GetComponentInChildren<Canvas>();
         UIShip.gameObject.SetActive(false);
-
+        objetivos = GameObject.Find("UIObjectives").GetComponent<Objetivos>();
     }
 
     void ShowDetails()
     {
-        if(VerifyEscapeObjective())
+        if(VerifyEscapeObjective() && !GameManager.Instance.PlayerWin)
         {
             UIShip.gameObject.SetActive(true);
         }
@@ -62,11 +63,13 @@ public class Ship : MonoBehaviour
     }
 
     private bool VerifyEscapeObjective(){
-        if (Objjectives.Instance.currentObjective == (int) Objjectives.Objectives.ESCAPE)
+        if (objetivos.currentObjective == (int) Objetivos.ObjectivesEnum.ESCAPE)
         {
             return true;
         }else{
             return false;
         }
     }
+
+
 }

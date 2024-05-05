@@ -8,6 +8,7 @@ public class Generator : MonoBehaviour
     GameObject off;
     GameObject on;
     Canvas canvas;
+    Objetivos objetivos;
 
     bool isOn = true;
 
@@ -20,6 +21,7 @@ public class Generator : MonoBehaviour
 
     void Start()
     {
+        objetivos = GameObject.Find("UIObjectives").GetComponent<Objetivos>();
         on.SetActive(false);
     }
 
@@ -42,7 +44,7 @@ public class Generator : MonoBehaviour
     void Interact()
     {
 
-        if (isOn)
+        if (isOn && objetivos.currentObjective == (int) Objetivos.ObjectivesEnum.TURN_ON_GENERATORS)
         {
             off.SetActive(false);
             on.SetActive(true);
@@ -54,7 +56,7 @@ public class Generator : MonoBehaviour
         if(GameManager.Instance.activeGenerators == 2)
         {
            
-            Objjectives.Instance.ChangeObjective(Objjectives.Objectives.TURN_ON_GENERATORS_COMPLETED);
+            objetivos.CompleteObjective(Objetivos.ObjectivesEnum.TURN_ON_GENERATORS);
         }
     }
 }

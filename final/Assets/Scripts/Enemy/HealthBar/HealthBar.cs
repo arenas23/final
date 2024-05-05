@@ -43,7 +43,7 @@ public class HealthBar : MonoBehaviour
             {
                 StopCoroutine(AnimationCoroutine);
             }
-            AnimationCoroutine = StartCoroutine(AnimateProgress(progress, speed));
+            if(!GameManager.Instance.IsPaused) AnimationCoroutine = StartCoroutine(AnimateProgress(progress, speed));
         }
     }
 

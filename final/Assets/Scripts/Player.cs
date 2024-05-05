@@ -47,6 +47,7 @@ public class Player : MonoBehaviour
         {
             indexCollider = VerifyDistanceShorter();
             interactable = colliders[indexCollider].GetComponent<Interact>();
+            Debug.Log(interactable);
             interactable.CallView();
             if(interactable != lastInteractable){
                 lastInteractable?.CallHideView();

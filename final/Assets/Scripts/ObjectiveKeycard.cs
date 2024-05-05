@@ -6,10 +6,11 @@ using UnityEngine;
 public class ObjectiveKeycard : MonoBehaviour
 {
     bool isFirstTime = true;
+    Objetivos objetivos;
     // Start is called before the first frame update
     void Start()
     {
-        
+        objetivos = GameObject.Find("UIObjectives").GetComponent<Objetivos>();
     }
 
     // Update is called once per frame
@@ -20,9 +21,9 @@ public class ObjectiveKeycard : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Player") && isFirstTime && Objjectives.Instance.currentObjective == (int)Objjectives.Objectives.GO_CONTROL_ROOM)
+        if(other.CompareTag("Player") && isFirstTime && objetivos.currentObjective == (int)Objetivos.ObjectivesEnum.GO_CONTROL_ROOM)
         {
-            Objjectives.Instance.ChangeObjective(Objjectives.Objectives.SEARCH_KEYCARD);
+            objetivos.ActivateObjective(Objetivos.ObjectivesEnum.SEARCH_KEYCARD);
             isFirstTime = false;
         }
     }

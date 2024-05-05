@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class DoorKeyController : MonoBehaviour
 {
 
+    Objetivos objetivos;
     // Start is called before the first frame update
     private Animator animator;
     [Header("Door")]
@@ -31,9 +32,11 @@ public class DoorKeyController : MonoBehaviour
     private bool isOpen = false;
     private string unlocked = "Unlocked";
     private string locked = "Locked";
+    bool firstTime = true;
 
     public void Start()
     {
+        objetivos = GameObject.Find("UIObjectives").GetComponent<Objetivos>();
         animator = GetComponentInParent<Animator>();
         verifyKey();
     }
@@ -53,9 +56,10 @@ public class DoorKeyController : MonoBehaviour
                 animator.Play("abrir");
                 isOpen = true;
                 AudioManager.Instance.PlaySFX(1);
-                if(Objjectives.Instance.currentObjective == (int) Objjectives.Objectives.SEARCH_KEYCARD_COMPLETED)
+                if(GameManager.Instance.keyCard == 1 && firstTime)
                 {
-                    Objjectives.Instance.ChangeObjective(Objjectives.Objectives.GO_CONTROL_ROOM_COMPLETED);
+                    objetivos.CompleteObjective(Objetivos.ObjectivesEnum.GO_CONTROL_ROOM);
+                    firstTime = false;
                 }
 
             }
