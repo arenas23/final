@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class HoloDesk : MonoBehaviour
 {
     public Interact openFromInteraction;
+    Objetivos objetivos;
 
     [Header("Images")]
     [SerializeField] private Sprite blueTextBackground;
@@ -43,7 +44,8 @@ public class HoloDesk : MonoBehaviour
 
         UIDesk = GetComponentInChildren<Canvas>();
         UIDesk.gameObject.SetActive(false);
-        
+        objetivos = GameObject.Find("UIObjectives").GetComponent<Objetivos>();
+
     }
 
 
@@ -52,7 +54,7 @@ public class HoloDesk : MonoBehaviour
         UIDesk.gameObject.SetActive(true);
         if (firstTime)
         {
-            Objjectives.Instance.ChangeObjective(Objjectives.Objectives.TURN_ON_GENERATORS);
+            objetivos.ActivateObjective(Objetivos.ObjectivesEnum.TURN_ON_GENERATORS);
             firstTime = false;
         }
 
@@ -75,7 +77,7 @@ public class HoloDesk : MonoBehaviour
     {
         if (GameManager.Instance.activeGenerators == 2)
         {
-            Objjectives.Instance.ChangeObjective(Objjectives.Objectives.ESCAPE);
+            objetivos.ActivateObjective(Objetivos.ObjectivesEnum.ESCAPE);
 
         }
         

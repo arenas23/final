@@ -5,7 +5,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -13,6 +12,7 @@ public class GameManager : MonoBehaviour
 
 
     public Canvas winCanvas, loseCanvas;
+    public Objetivos objetivos;
 
 
     public int defeatedEnemies = 0;
@@ -21,11 +21,12 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private bool isPaused = false;
     public Canvas pauseCanvas;
-    [SerializeField] private GameObject uiPlayer;
+    public GameObject uiPlayer;
     public Slider sliderMusic, sliderSFX, sliderMaster;
     
     public Slider sensitivitySlider;
     public CameraController cameraController;
+    public bool PlayerWin = false;
 
     public bool IsPaused
     {
@@ -50,8 +51,6 @@ public class GameManager : MonoBehaviour
         sensitivitySlider.value = cameraController.mouseSensitivity;
         sensitivitySlider.onValueChanged.AddListener(cameraController.SetMouseSensitivity);
 
-  
-        uiPlayer = GameObject.Find("UIPlayer");
 
         if (pauseCanvas != null)
         {
@@ -65,9 +64,9 @@ public class GameManager : MonoBehaviour
     {
         PausePanel();
 
-        if(uiPlayer == null){
-            uiPlayer = GameObject.Find("UIPlayer");
-        }
+        // if(uiPlayer == null){
+        //     uiPlayer = GameObject.Find("UIPlayer");
+        // }
     }
 
     public void PauseGame()
@@ -96,6 +95,10 @@ public class GameManager : MonoBehaviour
     {
         ResumeGame();
         defeatedEnemies = 0;
+        activeGenerators = 0;
+        keyCard = 0;
+        objetivos.currentObjective = 0;
+        objetivos.activeObjectives = new();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void ExitGame()
@@ -117,6 +120,7 @@ public class GameManager : MonoBehaviour
 
     public void WinPlayer()
     {
+        PlayerWin = true;
         winCanvas.gameObject.SetActive(true);
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;

@@ -8,6 +8,7 @@ public class TemporizdorController : MonoBehaviour
     float seconds = 0;
     float minutes = 0;
     int minutesInSeconds = 420;
+    // int minutesInSeconds = 5;
     readonly int interval = 1;
     TextMeshProUGUI tiempo;
     // Start is called before the first frame update
